@@ -34,7 +34,6 @@ module.exports = (grunt) ->
         options:
           # bare: false
           sourceMap: true
-          # preserve_dirs: true
 
     concat:
       options:
@@ -82,10 +81,11 @@ module.exports = (grunt) ->
       #   tasks: ['coffee']
       options:
         reload: true
+        atBegin: true
 
     clean:
       build: ["public/*.*"],
-      release: ["dist/*.*"]
+      dist: ["dist/*.*"]
 
   # load plugins
   grunt.loadNpmTasks 'grunt-contrib-sass'
@@ -99,12 +99,19 @@ module.exports = (grunt) ->
   # tasks
   # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
 
+  # $ grunt build
+  grunt.registerTask 'build', ->
+    grunt.task.run [
+      "clean:build"
+      "sass"
+    ]
+
   # $ grunt dist
   # $ grunt dist --war
   grunt.registerTask 'dist', ->
     grunt.config "dist", true
     grunt.task.run [
-      "clean:release"
+      "clean:dist"
       "sass"
     ]
     grunt.task.run "war" if grunt.option('war')
