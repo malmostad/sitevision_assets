@@ -1,0 +1,43 @@
+.wrapper {
+  @include clearfix();
+  margin: 1em auto;
+  max-width: 55em;
+  padding: 0 1em;
+}
+
+section.body-copy,
+article.body-copy {
+  clear: both;
+  @include columns(8, false, 4%);
+  margin-bottom: 1em;
+}
+
+nav.content,
+nav.basic {
+  @include columns(4, true, 4%);
+}
+
+@media (max-width: 48em) {
+  .wrapper {
+    max-width: 34em;
+  }
+
+  article.body-copy,
+  nav.content,
+  nav.basic {
+    @include columns(12);
+  }
+}
+
+.feedback,
+.m-share,
+.contact-us {
+  @include columns(8, false, 4%);
+  @media (max-width: 48em) {
+    @include columns(12);
+  }
+}
+
+.m-share {
+  margin-bottom: .5em;
+}

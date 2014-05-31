@@ -1,0 +1,98 @@
+nav.nav-page-with-direct-links {
+  @include clearfix();
+  clear: left;
+  &.start {
+    margin-top: 1em;
+    @media (max-width: 36em) {
+      margin-top: -.5em;
+    }
+  }
+  > h1 {
+    font-family: $serif;
+    font-weight: normal;
+    font-size: emize(34, 16);
+    line-height: 1.1;
+    margin: .1em 0 .3em;
+  }
+
+  > ul {
+    @include clearfix();
+    font-family: $sans-serif;
+    margin: 1.5em 0 .5em;
+    padding: 0;
+    list-style: none;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    > li {
+      margin-bottom: 1.5em;
+      border-top: #000 3px solid;
+      @media (min-width: 52em) {
+        @include columns(4, false, 4%);
+        &:nth-child(3n) {
+          @include columns(4, true, 4%);
+        }
+      }
+      @media (max-width: 51.99em) and (min-width: 30em) {
+        &:nth-child(2n+1) {
+          @include columns(6, false, 4%);
+        }
+        &:nth-child(2n) {
+          @include columns(6, true, 4%);
+        }
+      }
+      @media (max-width: 29.99em) {
+        &:nth-child(n+0) {
+          @include columns(12);
+        }
+      }
+    }
+  }
+
+  > ul > li li {
+    font-size: emize(14);
+  }
+
+  h2 {
+    font-size: emize(16);
+    line-height: emize(20, 16);
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  > ul > li > a {
+    padding-top: emize(9, 16);
+    padding-bottom: emize(9, 16);
+  }
+  li a {
+    position: relative;
+    display: block;
+    border-bottom: $border;
+    padding: emize(11, 14) .4em emize(10, 14);
+    margin: 0;
+    line-height: emize(20, 16);
+    &:hover {
+      background: $background-light;
+      text-decoration: none;
+    }
+  }
+  li.more a::after {
+    content: ' …'
+  }
+
+  li li {
+    padding: 0;
+    margin: 0;
+  }
+  li li a {
+    color: #000;
+  }
+  ul * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
