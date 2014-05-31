@@ -20,7 +20,7 @@ module.exports = (grunt) ->
           sourcemap: grunt.option('sourcemaps')
         files: [
           expand: true
-          cwd: 'stylesheets'
+          cwd: 'src/stylesheets'
           src: [
             # Use the Sass declarations `@import` in the main scss file application.scss
             'application.scss'
@@ -39,8 +39,8 @@ module.exports = (grunt) ->
         files:
           '<%= dist ? "dist" : "public" %>/application.js': [
             # Files to compile and concatenate in given order
-            'javascripts/contact_us.coffee'
-            'javascripts/feedback.coffee'
+            'src/javascripts/contact_us.coffee'
+            'src/javascripts/feedback.coffee'
           ]
 
     uglify:
@@ -53,16 +53,18 @@ module.exports = (grunt) ->
     # $ grunt watch
     watch:
       sass:
-        files: 'stylesheets/*.scss'
+        files: 'src/stylesheets/*.scss'
         tasks: ['sass']
       coffee:
-        files: 'javascripts/*.coffee'
+        files: 'src/javascripts/*.coffee'
         tasks: ['coffee']
       options:
         reload: true
         liveReload: true
         atBegin: true
 
+    # $ grunt watch
+    # $ grunt watch[build:dist]
     clean:
       build: ["public/*.*"],
       dist: ["dist/*.*"]
@@ -84,16 +86,8 @@ module.exports = (grunt) ->
           dest: ''
         ]
 
-  # tasks
-  # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
-
   # $ grunt build
-  grunt.registerTask 'build', ->
-    grunt.task.run [
-      "clean:build"
-      "sass"
-      "coffee"
-    ]
+  grunt.registerTask 'build', ["clean:build", "sass", "coffee"]
 
   # $ grunt dist
   # $ grunt dist --war
