@@ -1,5 +1,11 @@
 # Sitevision Assets
 
+## Project Structure
+`public`
+`dist`
+`src`
+
+
     $ npm install
 
     $ bower update
@@ -15,6 +21,8 @@
 
     $ coffee app.coffee
     $ rackup
+
+
 
 ## License
 Released under AGPL version 3.

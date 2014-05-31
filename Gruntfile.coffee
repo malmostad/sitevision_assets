@@ -44,6 +44,23 @@ module.exports = (grunt) ->
         src: 'src/<%= pkg.name %>.js'
         dest: 'build/<%= pkg.name %>.min.js'
 
+    # $ grunt watch
+    watch:
+      sass:
+        files: 'stylesheets/*.scss'
+        tasks: ['sass']
+      coffee:
+        files: 'javascripts/*.coffee'
+        tasks: ['coffee']
+      options:
+        reload: true
+        liveReload: true
+        atBegin: true
+
+    clean:
+      build: ["public/*.*"],
+      dist: ["dist/*.*"]
+
 
     # Make a war file for servlet style deployment
     # $ grunt war
@@ -62,21 +79,6 @@ module.exports = (grunt) ->
           dest: ''
         ]
 
-    # $ grunt watch
-    watch:
-      sass:
-        files: 'stylesheets/<%= sass.compile.files[0].src %>'
-        tasks: ['sass']
-      # coffee:
-      #   files: '<%= coffee.compile.src %>'
-      #   tasks: ['coffee']
-      options:
-        reload: true
-        atBegin: true
-
-    clean:
-      build: ["public/*.*"],
-      dist: ["dist/*.*"]
 
   # tasks
   # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
