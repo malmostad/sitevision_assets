@@ -83,12 +83,17 @@ module.exports = (grunt) ->
       options:
         reload: true
 
+    clean:
+      build: ["public/*.*"],
+      release: ["dist/*.*"]
+
   # load plugins
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-war'
 
   # tasks
@@ -96,5 +101,8 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'build', ->
     # grunt.log.writeln grunt.option('target') || 'dev'
-    grunt.config("dist", true)
-    grunt.task.run(["sass"])
+    grunt.config "dist", true
+    grunt.task.run [
+      "clean:release"
+      "sass"
+    ]
