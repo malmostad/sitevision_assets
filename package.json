@@ -1,0 +1,19 @@
+{
+  "name": "sitevision_assets",
+  "version": "0.0.1",
+  "repository": "",
+  "private": true,
+  "dependencies": {
+    "express": "~4.3.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-sass": "~0.7.2",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-war": "~0.3.2",
+    "coffee-script": "~1.7.1"
+  }
+}
