@@ -1,4 +1,11 @@
 module.exports = (grunt) ->
+  grunt.loadNpmTasks 'grunt-contrib-sass'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-war'
+
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     dist: false
@@ -21,30 +28,14 @@ module.exports = (grunt) ->
     # $ grunt coffee
     coffee:
       compile:
-        # expand: true
-        # cwd: 'javascripts'
+        options:
+          separator: ';\n'
+          sourceMap: true
         files:
-          'dist/application.js': [
+          '<%= dist ? "dist" : "public" %>/application.js': [
             'javascripts/application.coffee'
             'javascripts/foo.coffee'
           ]
-        # src: ['*.coffee']
-        # dest: 'build'
-        # ext: '.js'
-        options:
-          # bare: false
-          sourceMap: true
-
-    concat:
-      options:
-        separator: '\n'
-      cwd: 'build'
-      dist:
-        src: [
-          'application.js'
-          'foo.js'
-        ]
-        dest: 'dist/application.js'
 
     uglify:
       options:
@@ -71,7 +62,7 @@ module.exports = (grunt) ->
           dest: ''
         ]
 
-    # $ grunt watch (or simply grunt)
+    # $ grunt watch
     watch:
       sass:
         files: 'stylesheets/<%= sass.compile.files[0].src %>'
@@ -87,15 +78,6 @@ module.exports = (grunt) ->
       build: ["public/*.*"],
       dist: ["dist/*.*"]
 
-  # load plugins
-  grunt.loadNpmTasks 'grunt-contrib-sass'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-concat'
-  grunt.loadNpmTasks 'grunt-contrib-uglify'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-war'
-
   # tasks
   # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
 
@@ -104,6 +86,7 @@ module.exports = (grunt) ->
     grunt.task.run [
       "clean:build"
       "sass"
+      "coffee"
     ]
 
   # $ grunt dist
@@ -113,5 +96,6 @@ module.exports = (grunt) ->
     grunt.task.run [
       "clean:dist"
       "sass"
+      "coffee"
     ]
     grunt.task.run "war" if grunt.option('war')
