@@ -1,18 +1,20 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
+    dist: false
 
     # $ grunt sass
     sass:
       compile:
         options:
-          style: 'expanded'
+          style: '<%= dist ? "compressed" : "expanded" %>'
           banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */\n'
+          sourcemap: true
         files: [
           expand: true
           cwd: 'stylesheets'
           src: ['application.scss']
-          dest: 'dist'
+          dest: '<%= dist ? "dist" : "public" %>'
           ext: '.css'
         ]
 
@@ -72,16 +74,14 @@ module.exports = (grunt) ->
 
     # $ grunt watch (or simply grunt)
     watch:
-      html:
-        files: ['**/*.html']
       sass:
-        files: '<%= sass.compile.files[0].src %>'
+        files: 'stylesheets/<%= sass.compile.files[0].src %>'
         tasks: ['sass']
-      coffee:
-        files: '<%= coffee.compile.src %>'
-        tasks: ['coffee']
+      # coffee:
+      #   files: '<%= coffee.compile.src %>'
+      #   tasks: ['coffee']
       options:
-        livereload: true
+        reload: true
 
   # load plugins
   grunt.loadNpmTasks 'grunt-contrib-sass'
@@ -92,4 +92,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-war'
 
   # tasks
-  grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
+  # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
+
+  grunt.registerTask 'build', ->
+    # grunt.log.writeln grunt.option('target') || 'dev'
+    grunt.config("dist", true)
+    grunt.task.run(["sass"])
