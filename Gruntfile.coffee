@@ -99,10 +99,12 @@ module.exports = (grunt) ->
   # tasks
   # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
 
-  grunt.registerTask 'build', ->
-    # grunt.log.writeln grunt.option('target') || 'dev'
+  # $ grunt dist
+  # $ grunt dist --war
+  grunt.registerTask 'dist', ->
     grunt.config "dist", true
     grunt.task.run [
       "clean:release"
       "sass"
     ]
+    grunt.task.run "war" if grunt.option('war')
