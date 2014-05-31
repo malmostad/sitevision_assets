@@ -8,6 +8,7 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
+    banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */'
     dist: false
 
     # $ grunt sass
@@ -15,12 +16,17 @@ module.exports = (grunt) ->
       compile:
         options:
           style: '<%= dist ? "compressed" : "expanded" %>'
-          banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */\n'
-          sourcemap: true
+          banner: '<%= banner %>'
+          sourcemap: grunt.option('sourcemaps')
         files: [
           expand: true
           cwd: 'stylesheets'
-          src: ['application.scss']
+          src: [
+            # Use the Sass declarations `@import` in the main scss file application.scss
+            'application.scss'
+            # Individual files
+            'ie7.scss'
+          ]
           dest: '<%= dist ? "dist" : "public" %>'
           ext: '.css'
         ]
@@ -29,20 +35,20 @@ module.exports = (grunt) ->
     coffee:
       compile:
         options:
-          separator: ';\n'
-          sourceMap: true
+          sourceMap: grunt.option('sourcemaps')
         files:
           '<%= dist ? "dist" : "public" %>/application.js': [
-            'javascripts/application.coffee'
-            'javascripts/foo.coffee'
+            # Files to compile and concatenate in given order
+            'javascripts/contact_us.coffee'
+            'javascripts/feedback.coffee'
           ]
 
     uglify:
       options:
-        banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */\n'
+        banner: '<%= banner %>\n'
       build:
-        src: 'src/<%= pkg.name %>.js'
-        dest: 'build/<%= pkg.name %>.min.js'
+        src: 'dist/application.js'
+        dest: 'dist/application.js'
 
     # $ grunt watch
     watch:
@@ -61,8 +67,7 @@ module.exports = (grunt) ->
       build: ["public/*.*"],
       dist: ["dist/*.*"]
 
-
-    # Make a war file for servlet style deployment
+    # Make a war file for servlet deployment
     # $ grunt war
     war:
       target:
@@ -78,7 +83,6 @@ module.exports = (grunt) ->
           src: ['*.js', '*.css']
           dest: ''
         ]
-
 
   # tasks
   # grunt.registerTask 'default', ['sass', 'coffee', 'concat', 'uglify', 'war', 'watch']
@@ -99,5 +103,6 @@ module.exports = (grunt) ->
       "clean:dist"
       "sass"
       "coffee"
+      "uglify"
     ]
     grunt.task.run "war" if grunt.option('war')

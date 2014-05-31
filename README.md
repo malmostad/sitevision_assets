@@ -11,8 +11,13 @@
     $ bower update
 
     $ grunt watch
+    $ grunt build
+    $ grunt dist
+
+    $ grunt build --sourcemaps
     $ grunt dist
     $ grunt dist --war
+
 
     $ grunt clean
     $ grunt clean:dist
