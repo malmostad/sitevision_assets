@@ -47,9 +47,9 @@ During development, it is in the `src` directory you are working. You want the a
 
     $ grunt watch
 
-The Sass and CoffeeScript files in the `src` directory will be compiled to the `public` directory as soon as they are changed and at the startup of the `watch` task. The `public` directory is automatically cleaned when you run the task.
+The Sass and CoffeeScript files in the `src` directory will be compiled to the `public` directory as soon as they are changed as well as at the startup of the `watch` task. The `public` directory is automatically cleaned when you run the task.
 
-If you want to have source maps generated for debugging of stylesheets and JavaScript, add the ` --sourcemaps` argument:
+If you want to have source maps generated for debugging of stylesheets and JavaScripts, add the ` --sourcemaps` argument:
 
     $ grunt watch --sourcemaps
 
@@ -58,25 +58,7 @@ If you for some reason want to generate the files in `public` once without havin
     $ grunt build
     $ grunt build --sourcemaps
 
-Files generated to `public` directory must not be used for deployment to production, `dist` is used for that (see below).
-
-
-## Build for Deployment
-Do not use the files in the `public` directory when you deploy to a test or production server. To generate minified versions of the asset files, run:
-
-    $ grunt dist
-
-A new version will be compiled for deployment in the `dist` directory. The directory will be cleaned before the new files are generated.
-
-To generate a Java servlet for deployment in the Tomcat server that Sitevision is running in, add the `--war` argument to the command:
-
-    $ grunt dist --war
-
-A Java servlet named `local-assets-v4` will be compiled to the `dist` directory.
-
-## Deploy
-
-The proven way is to deploy the assets as a servlet in Tomcat. Manually uploading in the CMS GUI is not recommended. In Sitevsion 3.x, servlets are deployed in `sitevision/tomcat/webapps`. Copy the war file to that directory and it will automatically be deployed if hot deployment is active.
+Files generated to `public` directory must not be used for deployment to production, `dist` is used for that (see *Build for Deployment* below).
 
 
 ### Add and Remove Sass Files
@@ -135,6 +117,25 @@ The assets are now available in your local web browser at e.g. `http://localhost
 
 ### Load in Tomcat
 A third way to serve the assets locally is by using Sitevisions bundled Tomcat server if you have Sitevision running locally. Follow the instructions for deploying the assets as a servlet below, but perform it on your local machine. After the servlet is loaded once, you can symlink the servlet's directory to the `public` directory in your workspace.
+
+
+## Build for Deployment
+To generate minified versions of the asset files, run:
+
+    $ grunt dist
+
+A new version will be compiled for deployment in the `dist` directory. The directory will be cleaned before the new files are generated.
+
+To generate a Java servlet for deployment in the Tomcat server that Sitevision is running in, add the `--war` argument to the command:
+
+    $ grunt dist --war
+
+A Java servlet named `local-assets-v4.war` ready for deployment will be created in the `dist` directory.
+
+
+## Deploy
+
+The proven way is to deploy the assets as a servlet in Tomcat. Manually uploading in the CMS GUI is not recommended. In Sitevsion 3.x, servlets are deployed in `sitevision/tomcat/webapps`. Copy the war file to that directory and it will automatically be deployed if hot deployment is active.
 
 
 ### Release
