@@ -5,16 +5,18 @@ This repo contains the source for asset files used in the CMS Sitevision at www.
 ## tl;dr
 If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
 
-    $ git clone git@github.com:malmostad/sitevision_assets.git
-    $ cd sitevision_assets
-    $ npm install
+```bash
+$ git clone git@github.com:malmostad/sitevision_assets.git
+$ cd sitevision_assets
+$ npm install
 
-    $ grunt watch         # watches src and generates to public
-    $ coffee app.coffee   # Serves files locally from the public dir on port 3000
-    $ rackup              # Alternative to the last command, port 9292
+$ grunt watch         # Watch src and generate to public. You can add --sourcemaps
 
-    $ grunt dist          # generates files for deployment to dist
-    $ grunt dist --war    # generates a servlet for deployment to dist
+$ coffee app.coffee   # Serves files locally from the public dir on port 3000
+
+$ grunt dist          # generates files for deployment to dist
+$ grunt dist --war    # generates a servlet for deployment to dist
+```
 
 If you’re not, read the rest of the page.
 
@@ -26,7 +28,7 @@ The `src` directory structure contains the source files for Sass/CSS and CoffeeS
 
 The contents of `public` and `dist` are excluded from the Git repository by the `.gitignore` file. Those are used as output directories for generated asset files during development and build distribution respectively. They are automatically cleaned when running tasks and can also be be clean manually with the `grunt clean` task.
 
-`vendor` contains Sass utilities shared with our other applications. They are checked in to this repository to ensure that all developers working with this system have the same version. See *Shared Sass Utilities* below.
+`vendor` contains Sass utilities shared with our other applications. See *Shared Sass Utilities* below.
 
 
 ## Development Setup
@@ -72,13 +74,13 @@ CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass f
 
 
 ## Shared Sass Utilities
-Sass utilities from our [shared_assets](https://github.com/malmostad/shared_assets) repository are attached to this repository. See the *Gettings Started* and *Grids and Responsive Design* sections of the [Web Application Guidelines](http://malmostad.github.io/wag-external-v4) for usage.
+Sass utilities from our [shared_assets](https://github.com/malmostad/shared_assets) repository are attached to this repository. See the *Gettings Started* and *Grids and Responsive Design* sections of the [Web Application Guidelines v4](http://malmostad.github.io/wag-external-v4) for usage.
 
 To update the Sass utilities for this project, if you e.g. need a fresh version of the `variables.scss` file, run:
 
     $ bower update
 
-Be sure to commit the changes if any files were updated.
+The updated files must be committed to this repository to ensure that all developers working with this system have the same versions.
 
 
 ## Run a Lightweight Local Asset Server
