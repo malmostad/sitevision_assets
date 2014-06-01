@@ -12,12 +12,12 @@ $ cd sitevision_assets
 $ npm install
 
 # During development
-$ grunt watch          # watch src and generate to public
-$ coffee app.coffee    # Serve files from the public dir on port 3000
+$ grunt watch          # watch `src` and generate to `public`
+$ coffee app.coffee    # Serve files from `public` on port 3000
 
 # Build for deployment
-$ grunt dist           # generate files for deployment to dist
-$ grunt dist --war     # generate a servlet for deployment to dist
+$ grunt dist           # generate files to `dist` for deployment
+$ grunt dist --war     # generate a servlet to `dist` for deployment
 ```
 
 If you’re not, read the rest of the page.
@@ -126,7 +126,7 @@ A Java servlet named `local-assets-v4.war` ready for deployment will be created 
 
 
 ## Deploy
-Deploying the Java servlet in the same Tomcat server as Sitevision is running in, is done in one step. Copy the `war` file to `/opt/sitevision/tomcat/webapps` on the server and it will automatically be deployed and replace the previous version with the same name.
+Deploying the Java servlet in the same Tomcat server as Sitevision is running in, is done in one step. Copy the `war` file to `/opt/sitevision/tomcat/webapps/` on the server and it will automatically be deployed and replace the previous version with the same name.
 
 
 ## License
