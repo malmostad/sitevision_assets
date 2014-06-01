@@ -68,7 +68,7 @@ To add a Sass file that should not be concatenated with the rest of the files, l
 
 
 ### Add and Remove CoffeeScript Files
-CoffeeScript source files are in the `src/javascripts/ directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from the compilation tasks. The `coffee:` task configuration block in the file has a `files:` object that looks like this:
+CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from the compilation tasks. The `coffee:` task configuration block in the file has a `files:` object that looks like this:
 
 ```coffeescript
 coffee:
