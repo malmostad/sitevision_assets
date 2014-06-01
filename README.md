@@ -55,8 +55,19 @@ Sass source files are in the `src/stylesheets/ directory. If you add or remove S
 To add an individual Sass file, like the `ie7.scss` one, that should not be concatenated to the `application.css` file, just add it to the `src/stylesheets` directory.
 
 
-### Add CoffeeScript Files
+### Add and Remove CoffeeScript Files
+CoffeeScript source files are in the `src/javascripts/ directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from the compilation tasks. The `coffee:` task configuration block in the file has a `files` object that looks like this:
 
+```coffeescript
+files:
+  '<%= isRelease ? "dist" : "public" %>/application.js': [
+    # Files to compile and concatenate in given order
+    'src/javascripts/contact_us.coffee'
+    'src/javascripts/feedback.coffee'
+  ]
+```
+
+The key is the path and filename that will be generated and the array contains files to be compiled and concatenated. Add new files to the array. You can also add more key/value pairs with the pattern `to: from` if you need individual output files to serve with IE conditionals e.g.
 
 ## Shared Sass Utilities
 Sass utilities from our [shared_assets](https://github.com/malmostad/shared_assets) repository are attached to this repository. See the *Gettings Started* and *Grids and Responsive Design* sections of the [Web Application Guidelines](http://malmostad.github.io/wag-external-v4) for usage.

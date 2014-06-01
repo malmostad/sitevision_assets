@@ -9,13 +9,13 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */'
-    dist: false
+    isRelease: false
 
     # $ grunt sass
     sass:
       compile:
         options:
-          style: '<%= dist ? "compressed" : "expanded" %>'
+          style: '<%= isRelease ? "compressed" : "expanded" %>'
           banner: '<%= banner %>'
           sourcemap: grunt.option('sourcemaps')
         files: [
@@ -27,7 +27,7 @@ module.exports = (grunt) ->
             # Individual files
             'ie7.scss'
           ]
-          dest: '<%= dist ? "dist" : "public" %>'
+          dest: '<%= isRelease ? "dist" : "public" %>'
           ext: '.css'
         ]
 
@@ -37,7 +37,7 @@ module.exports = (grunt) ->
         options:
           sourceMap: grunt.option('sourcemaps')
         files:
-          '<%= dist ? "dist" : "public" %>/application.js': [
+          '<%= isRelease ? "dist" : "public" %>/application.js': [
             # Files to compile and concatenate in given order
             'src/javascripts/contact_us.coffee'
             'src/javascripts/feedback.coffee'
