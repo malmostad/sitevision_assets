@@ -23,9 +23,9 @@ Configuration files used during development and build are in the project root. N
 
 The `src` directory structure contains the source files for Sass/CSS and CoffeeScript. Will not be deployed to a server.
 
-The `public` and `dist` directories does not contain any files in the Git repository but are used as output directories for generated asset files during development and build distribution respectively. The contents on those directories are ignored by the `.gitignore` file. They are automatically cleaned before usage and can also be manually be clean with the `grunt clean` task.
+The contents of `public` and `dist` are excluded from the Git repository by the `.gitignore` file. Those are used as output directories for generated asset files during development and build distribution respectively. They are automatically cleaned when running tasks and can also be be clean manually with the `grunt clean` task.
 
-`vendor` contains files from other repositories used for development. They are checked in to this repository to ensure that all developers have the same versions. See *Shared Sass Utilities* below.
+`vendor` contains Sass utilities shared with our other applications. They are checked in to this repository to ensure that all developers working with this system have the same version. See *Shared Sass Utilities* below.
 
 
 ## Development Setup
