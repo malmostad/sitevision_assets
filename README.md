@@ -62,21 +62,21 @@ Files generated to `public` directory must not be used for deployment to product
 
 
 ### Add and Remove Sass Files
-Sass source files are in the `src/stylesheets/ directory. If you add or remove Sass files, edit the `src/stylesheets/application.scss` file. Note that `@import` is a Sass directive executed during compilation, not the regular CSS equivalent that import files on the client side. When you run `grunt watch` or `grunt dist`, the `application.css` file concatenates the `@import` files in the given order. Regular CSS files can also be added as long as they have the `.scss` suffix.
+Sass source files are in the `src/stylesheets/` directory. If you add or remove Sass files, edit the `src/stylesheets/application.scss` to have them compiled. Note that `@import` is a Sass directive executed during compilation, not the regular CSS equivalent that import files on the client side. When you run `grunt watch` or `grunt dist`, the `application.css` file concatenates the `@import` files in the given order. Regular CSS files can also be added as long as they have the `.scss` suffix.
 
-To add an individual Sass file, like the `ie7.scss` one, that should not be concatenated to the `application.css` file, just add it to the `src/stylesheets` directory.
+To add a Sass file that should not be concatenated with the rest of the files, like the `ie7.scss` one, just add it to the `src/stylesheets` directory and it will be compiled to `public` and `dist` respectively.
 
 
 ### Add and Remove CoffeeScript Files
-CoffeeScript source files are in the `src/javascripts/ directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from the compilation tasks. The `coffee:` task configuration block in the file has a `files` object that looks like this:
+CoffeeScript source files are in the `src/javascripts/ directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from the compilation tasks. The `coffee:` task configuration block in the file has a `files:` object that looks like this:
 
 ```coffeescript
-files:
-  '<%= forDist ? "dist" : "public" %>/application.js': [
-    # Files to compile and concatenate in given order
-    'src/javascripts/contact_us.coffee'
-    'src/javascripts/feedback.coffee'
-  ]
+coffee:
+  files:
+    '<%= forDist ? "dist" : "public" %>/application.js': [
+      'src/javascripts/contact_us.coffee'
+      'src/javascripts/feedback.coffee'
+    ]
 ```
 
 The key is the path and filename that will be generated and the array contains files to be compiled and concatenated. Add new files to the array. You can also add more key/value pairs with the pattern `to: from` if you need individual output files to serve with IE conditionals e.g.
