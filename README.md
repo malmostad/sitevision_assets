@@ -3,7 +3,7 @@
 This repo contains the source for asset files used in the CMS Sitevision at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
 
 ## tl;dr
-If you’re familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
+If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
 
     $ git clone git@github.com:malmostad/sitevision_assets.git
     $ cd sitevision_assets
@@ -11,6 +11,7 @@ If you’re familiar with management of asset files using Grunt or other commonl
 
     $ grunt watch         # watches src and generates to public
     $ coffee app.coffee   # Serves files locally from the public dir on port 3000
+    $ rackup              # Alternative to the last command, port 9292
 
     $ grunt dist          # generates files for deployment to dist
     $ grunt dist --war    # generates a servlet for deployment to dist
@@ -32,6 +33,7 @@ The contents of `public` and `dist` are excluded from the Git repository by the 
 Checkout the source code to your workspace:
 
     $ git clone git@github.com:malmostad/sitevision_assets.git
+    $ cd sitevision_assets
 
 After cloning the repository, install the required Node.js dependencies for the project. Be sure to have [Node.js](http://nodejs.org) installed on your machine. Run:
 
