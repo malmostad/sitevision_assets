@@ -1,27 +1,30 @@
 # Sitevision Assets
 
-## Project Structure
-`public`
-`dist`
-`src`
+This repo contains the source for asset files used in the CMS *Sitevision* at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
 
+## tl;dr
+If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake, this is the short story:
 
-
+    $ git clone git@github.com:malmostad/sitevision_assets.git
+    $ cd sitevision_assets
     $ npm install
 
-    $ bower update
+    $ grunt watch       # watches src and generates to public
+    $ coffee app.coffee # Serves files locally from the public dir on port 3000
 
-    $ grunt watch
-    $ grunt build
-    $ grunt dist
+    $ grunt dist        # generates files for deployment to dist
+    $ grunt dist --war  # generates a servlet for deployment to dist
 
-    $ grunt build --sourcemaps
+If you’re not, read all the instructions below.
 
+## Directory Structure
+Configuration files used during development and build resides in the project root. None of those files will be deployed to a server.
 
-    $ grunt clean
-    $ grunt clean:dist
-    $ grunt clean:build
+The `src` directory structure contains the source files for Sass/CSS and CoffeeScript. Will not be deployed to a server.
 
+The `public` and `dist` directories does not contain any files in the Git repository but are used as output directories for generated asset files during development and build distribution respectively. The contents on those directories are ignored by the `.gitignore` file. They are automatically cleaned before usage and can also be manually be clean with the `grunt clean` task.
+
+`vendor` contains files from other repositories used for development. They are checked in to this repository to ensure that all developers have the same versions. See *Shared Sass Utilities* below.
 
 
 ## Development Setup
@@ -36,10 +39,6 @@ After cloning the repository, install the required Node.js dependencies for the 
 The dependencies defined in `package.json` will be installed in `node_modules`i the projects root. That directory is excluded in the `.gitignore` file from being committed with Git so you need to run the `npm install` command again if you switch to another local machine. To update the dependencies later, run `npm update`.
 
 
-### Directory Structure
-
-
-
 ## Development
 
 During development, you want the asset files to be re-compiled automatically when you make changes to the source code. Use the Grunt `watch` task available in the project:
@@ -47,6 +46,35 @@ During development, you want the asset files to be re-compiled automatically whe
     $ grunt watch
 
 The Sass and CoffeeScript files in the `src` directory will be compiled to the `public` directory as soon as they are changed and at the startup of the `watch` task. The `public` directory is automatically cleaned when you run the task.
+
+If you want to have source maps generated for debugging of stylesheets and JavaScript, add the ` --sourcemaps` argument:
+
+    $ grunt watch --sourcemaps
+
+If you for some reason want to generate the files in `public` once without having the watcher running, run one of the following:
+
+    $ grunt build
+    $ grunt build --sourcemaps
+
+Files generated to `public` directory must not be used for deployment to production, `dist` is used for that (see below).
+
+
+## Build for Deployment
+Do not use the files in the `public` directory when you deploy to a test or production server. To generate minified versions of the asset files, run:
+
+    $ grunt dist
+
+A new version will be compiled for deployment in the `dist` directory. The directory will be cleaned before the new files are generated.
+
+To generate a Java servlet for deployment in the Tomcat server that Sitevision is running in, add the `--war` argument to the command:
+
+    $ grunt dist --war
+
+A Java servlet named `local-assets-v4` will be compiled to the `dist` directory.
+
+## Deploy
+
+The proven way is to deploy the assets as a servlet in Tomcat. Manually uploading in the CMS GUI is not recommended. In Sitevsion 3.x, servlets are deployed in `sitevision/tomcat/webapps`. Copy the war file to that directory and it will automatically be deployed if hot deployment is active.
 
 
 ### Add and Remove Sass Files
@@ -60,7 +88,7 @@ CoffeeScript source files are in the `src/javascripts/ directory. Unlike Sass fi
 
 ```coffeescript
 files:
-  '<%= isRelease ? "dist" : "public" %>/application.js': [
+  '<%= forDist ? "dist" : "public" %>/application.js': [
     # Files to compile and concatenate in given order
     'src/javascripts/contact_us.coffee'
     'src/javascripts/feedback.coffee'
@@ -106,23 +134,6 @@ The assets are now available in your local web browser at e.g. `http://localhost
 ### Load in Tomcat
 A third way to serve the assets locally is by using Sitevisions bundled Tomcat server if you have Sitevision running locally. Follow the instructions for deploying the assets as a servlet below, but perform it on your local machine. After the servlet is loaded once, you can symlink the servlet's directory to the `public` directory in your workspace.
 
-
-## Build for Deployment
-Do not use the files in the `public` directory when you deploy to a test or production server. To generate minified versions of the asset files, run:
-
-    $ grunt dist
-
-A new version will be compiled for deployment in the `dist` directory. The directory will be cleaned before the new files are generated.
-
-To generate a Java servlet for deployment in the Tomcat server that Sitevision is running in, add the `--war` argument to the command:
-
-    $ grunt dist --war
-
-A Java servlet named `local-assets-v4` will be compiled to the `dist` directory.
-
-## Deploy
-
-The proven way is to deploy the assets as a servlet in Tomcat. Manually uploading in the CMS GUI is not recommended. In Sitevsion 3.x, servlets are deployed in `sitevision/tomcat/webapps`. Copy the war file to that directory and it will automatically be deployed if hot deployment is active.
 
 ### Release
 
