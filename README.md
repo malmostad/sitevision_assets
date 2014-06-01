@@ -68,18 +68,7 @@ To add a Sass file that should not be concatenated with the rest of the files, l
 
 
 ### Add and Remove CoffeeScript Files
-CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from the compilation tasks. The `coffee:` task configuration block in the file has a `files:` object that looks like this:
-
-```coffeescript
-coffee:
-  files:
-    '<%= forDist ? "dist" : "public" %>/application.js': [
-      'src/javascripts/contact_us.coffee'
-      'src/javascripts/feedback.coffee'
-    ]
-```
-
-The key is the file that will be generated and the array contains files to be compiled and concatenated in the given order. Add new files to the array to have them included. You can also add more key/value pairs with the pattern `"to_file.js": "from_file.coffee"` if you need individual output files for IE conditionals or just used in the administration interface of a portlet.
+CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from compilation. The `coffee:` task configuration block in the file has a `files:` object used for that. See the readme for [Grunt Coffee](https://github.com/gruntjs/grunt-contrib-coffee) for instructions.
 
 
 ## Shared Sass Utilities
