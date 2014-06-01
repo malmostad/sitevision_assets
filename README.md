@@ -82,13 +82,13 @@ To update the Sass utilities for this project, if you e.g. need a fresh version 
 
     $ bower update
 
-The updated files must be committed (to this repository) to ensure that all developers---working with this system---have the very same versions.
+The updated files must be committed (to this repository) to ensure that all developers—working with this system—have the very same versions.
 
 
 ## Run a Lightweight Local Asset Server
-The easiest way to serve the assets on your own machine during development is to fire up a lightweight server and have the `watch` Grunt task running. The project is configured with two alternatives that works in the same way.
+The easiest way to serve the assets on your own machine during development is to fire up a lightweight server and have the `watch` task running. The project is configured with two alternatives that works in the same way.
 
-Pro tip: If you don't want to run a development version of Sitevision on your own machine---which might be wise---and instead are running it on a development server in your network, you can still point the the local assets `src/href`’s to `http://localhost/` as long as your co-developers are doing the same. And of course, this must not be the same server as other project members are visiting.
+Pro tip: If you don't want to run a development version of Sitevision on your own machine—which might be wise—and instead are running it on a development server in your network, you can still point the local assets `src/href`’s to `http://localhost/` as long as your co-developers are doing the same. And of course, this must not be the same server as other project members are visiting to review and test the solution.
 
 
 ### Using Express
