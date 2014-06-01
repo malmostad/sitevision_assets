@@ -126,7 +126,7 @@ A Java servlet named `local-assets-v4.war` ready for deployment will be created 
 
 
 ## Deploy
-Deploying the Java servlet with the assets in the same Tomcat server as Sitevision is running in, is done in one step. In Sitevsion 3.x, servlets are deployed in `sitevision/tomcat/webapps`. Copy the `war` file to that directory and it will automatically be (re-)deployed if hot deployment is active.
+Deploying the Java servlet in the same Tomcat server as Sitevision is running in, is done in one step. Copy the `war` file to `/opt/sitevision/tomcat/webapps` on the server and it will automatically be deployed and replace the previous version with the same name.
 
 
 ## License
