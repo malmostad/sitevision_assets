@@ -1,24 +1,25 @@
 # Sitevision Assets
 
-This repo contains the source for asset files used in the CMS *Sitevision* at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
+This repo contains the source for asset files used in the CMS Sitevision at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
 
 ## tl;dr
-If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake, this is the short story:
+If you’re familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
 
     $ git clone git@github.com:malmostad/sitevision_assets.git
     $ cd sitevision_assets
     $ npm install
 
-    $ grunt watch       # watches src and generates to public
-    $ coffee app.coffee # Serves files locally from the public dir on port 3000
+    $ grunt watch         # watches src and generates to public
+    $ coffee app.coffee   # Serves files locally from the public dir on port 3000
 
-    $ grunt dist        # generates files for deployment to dist
-    $ grunt dist --war  # generates a servlet for deployment to dist
+    $ grunt dist          # generates files for deployment to dist
+    $ grunt dist --war    # generates a servlet for deployment to dist
 
-If you’re not, read all the instructions below.
+If you’re not, read the rest of the page.
+
 
 ## Directory Structure
-Configuration files used during development and build resides in the project root. None of those files will be deployed to a server.
+Configuration files used during development and build are in the project root. None of those files will be deployed to a server.
 
 The `src` directory structure contains the source files for Sass/CSS and CoffeeScript. Will not be deployed to a server.
 
