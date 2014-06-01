@@ -35,7 +35,7 @@ Checkout the source code to your workspace:
     $ git clone git@github.com:malmostad/sitevision_assets.git
     $ cd sitevision_assets
 
-After cloning the repository, install the required Node.js dependencies for the project. Be sure to have [Node.js](http://nodejs.org) installed on your machine. Run:
+After cloning the repository, install the dependencies for the project. Be sure to have [Node.js](http://nodejs.org) installed on your machine. Run:
 
     $ npm install
 
@@ -43,8 +43,7 @@ The dependencies defined in `package.json` will be installed in `node_modules`i 
 
 
 ## Development
-
-During development, you want the asset files to be re-compiled automatically when you make changes to the source code. Use the Grunt `watch` task available in the project:
+During development, it is in the `src` directory you are working. You want the asset files to be re-compiled automatically whenever you make changes to the source code. Use the Grunt `watch` task available in the project:
 
     $ grunt watch
 
