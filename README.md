@@ -79,7 +79,8 @@ coffee:
     ]
 ```
 
-The key is the path and filename that will be generated and the array contains files to be compiled and concatenated. Add new files to the array. You can also add more key/value pairs with the pattern `to: from` if you need individual output files to serve with IE conditionals e.g.
+The key is the file that will be generated and the array contains files to be compiled and concatenated in the given order. Add new files to the array to have them included. You can also add more key/value pairs with the pattern `"to_file.js": "from_file.coffee"` if you need individual output files for IE conditionals or just used in the administration interface of a portlet.
+
 
 ## Shared Sass Utilities
 Sass utilities from our [shared_assets](https://github.com/malmostad/shared_assets) repository are attached to this repository. See the *Gettings Started* and *Grids and Responsive Design* sections of the [Web Application Guidelines](http://malmostad.github.io/wag-external-v4) for usage.
