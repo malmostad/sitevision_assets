@@ -16,8 +16,8 @@ $ grunt watch          # watch src and generate to public
 $ coffee app.coffee    # Serve files from the public dir on port 3000
 
 # Build for deployment
-$ grunt dist           # generates files for deployment to dist
-$ grunt dist --war     # generates a servlet for deployment to dist
+$ grunt dist           # generate files for deployment to dist
+$ grunt dist --war     # generate a servlet for deployment to dist
 ```
 
 If you’re not, read the rest of the page.
@@ -75,14 +75,14 @@ To add a Sass file that should not be concatenated with the rest of the files, l
 CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from compilation. The `coffee` task configuration block in the `Gruntfile.coffee` has a `files` object used for that. See the readme for [Grunt Coffee](https://github.com/gruntjs/grunt-contrib-coffee) for instructions and examples.
 
 
-## Shared Sass Utilities
+### Shared Sass Utilities
 Sass utilities from our [shared_assets](https://github.com/malmostad/shared_assets) repository are attached to this repository. See the *Gettings Started* and *Grids and Responsive Design* sections of the [Web Application Guidelines v4](http://malmostad.github.io/wag-external-v4) for usage.
 
 To update the Sass utilities for this project, if you e.g. need a fresh version of the `variables.scss` file, run:
 
     $ bower update
 
-The updated files must be committed to this repository to ensure that all developers working with this system have the same versions.
+The updated files must be committed (to this repository) to ensure that all developers---working with this system---have the very same versions.
 
 
 ## Run a Lightweight Local Asset Server
