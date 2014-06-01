@@ -49,9 +49,23 @@ During development, you want the asset files to be re-compiled automatically whe
 The Sass and CoffeeScript files in the `src` directory will be compiled to the `public` directory as soon as they are changed and at the startup of the `watch` task. The `public` directory is automatically cleaned when you run the task.
 
 
-### Add Sass Files
+### Add and Remove Sass Files
+Sass source files are in the `src/stylesheets/ directory. If you add or remove Sass files, edit the `src/stylesheets/application.scss` file. Note that `@import` is a Sass directive executed during compilation, not the regular CSS equivalent that import files on the client side. When you run `grunt watch` or `grunt dist`, the `application.css` file concatenates the `@import` files in the given order. Regular CSS files can also be added as long as they have the `.scss` suffix.
+
+To add an individual Sass file, like the `ie7.scss` one, that should not be concatenated to the `application.css` file, just add it to the `src/stylesheets` directory.
+
 
 ### Add CoffeeScript Files
+
+
+## Shared Sass Utilities
+Sass utilities from our [shared_assets](https://github.com/malmostad/shared_assets) repository are attached to this repository. See the *Gettings Started* and *Grids and Responsive Design* sections of the [Web Application Guidelines](http://malmostad.github.io/wag-external-v4) for usage.
+
+To update the Sass utilities for this project, if you e.g. need a fresh version of the `variables.scss` file, run:
+
+    $ bower update
+
+Be sure to commit the changes if any files were updated.
 
 
 ## Run a Local Asset Server
@@ -99,11 +113,6 @@ A Java servlet named `local-assets-v4` will be compiled to the `dist` directory.
 
 The proven way is to deploy the assets as a servlet in Tomcat. Manually uploading in the CMS GUI is not recommended. In Sitevsion 3.x, servlets are deployed in `sitevision/tomcat/webapps`. Copy the war file to that directory and it will automatically be deployed if hot deployment is active.
 
-
-## Update Shared Files
-
-    $ bower update
-
 ### Release
 
     $ npm version patch
@@ -115,8 +124,6 @@ The proven way is to deploy the assets as a servlet in Tomcat. Manually uploadin
     $ git tag
     $ git tag v4.0.1
     $ git push tags
-
-
 
 ## License
 Released under AGPL version 3.
