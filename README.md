@@ -1,6 +1,6 @@
 # Sitevision Assets
 
-This repo contains the source for asset files used in the CMS Sitevision at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
+This repository contains the source for asset files used in the CMS Sitevision at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
 
 ## tl;dr
 If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
@@ -87,6 +87,9 @@ The updated files must be committed (to this repository) to ensure that all deve
 
 ## Run a Lightweight Local Asset Server
 The easiest way to serve the assets on your own machine during development is to fire up a lightweight server and have the `watch` Grunt task running. The project is configured with two alternatives that works in the same way.
+
+Pro tip: If you don't want to run a development version of Sitevision on your own machine---which might be wise---and instead are running it on a development server in your network, you can still point the the local assets `src/href`’s to `http://localhost/` as long as your co-developers are doing the same. And of course, this must not be the same server as other project members are visiting.
+
 
 ### Using Express
 You have already Express installed if you ran `npm install` in the setup step above. To serve the assets locally on your machine with [Express](http://expressjs.com/), run:
