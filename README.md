@@ -68,7 +68,7 @@ To add a Sass file that should not be concatenated with the rest of the files, l
 
 
 ### Add and Remove CoffeeScript Files
-CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from compilation. The `coffee` task configuration block in the file has a `files` object used for that. See the readme for [Grunt Coffee](https://github.com/gruntjs/grunt-contrib-coffee) for instructions and examples.
+CoffeeScript source files are in the `src/javascripts/` directory. Unlike Sass files, you need to edit the `Gruntfile.coffee` file to add or remove files from compilation. The `coffee` task configuration block in the `Gruntfile.coffee` has a `files` object used for that. See the readme for [Grunt Coffee](https://github.com/gruntjs/grunt-contrib-coffee) for instructions and examples.
 
 
 ## Shared Sass Utilities
@@ -81,7 +81,7 @@ To update the Sass utilities for this project, if you e.g. need a fresh version 
 Be sure to commit the changes if any files were updated.
 
 
-## Run a Local Asset Server
+## Run a Lightweight Local Asset Server
 The easiest way to serve the assets on your own machine during development is to fire up a lightweight server and have the `watch` Grunt task running. The project is configured with two alternatives that works in the same way.
 
 ### Using Express
@@ -104,9 +104,6 @@ Start the local asset server:
     $ grunt watch
 
 The assets are now available in your local web browser at e.g. `http://localhost:9292/application.css`. Sinatra is reading static files from the `public` directory.  Be sure to have the `watch` Grunt task running to have those files compiled whenever a source code file is changed.
-
-### Load in Tomcat
-A third way to serve the assets locally is by using Sitevisions bundled Tomcat server if you have Sitevision running locally. Follow the instructions for deploying the assets as a servlet below, but perform it on your local machine. After the servlet is loaded once, you can symlink the servlet's directory to the `public` directory in your workspace.
 
 
 ## Build for Deployment
