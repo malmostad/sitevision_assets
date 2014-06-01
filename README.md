@@ -6,16 +6,18 @@ This repo contains the source for asset files used in the CMS Sitevision at www.
 If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
 
 ```bash
+# Setup
 $ git clone git@github.com:malmostad/sitevision_assets.git
 $ cd sitevision_assets
 $ npm install
 
-$ grunt watch         # Watch src and generate to public. You can add --sourcemaps
+# During development
+$ grunt watch          # watch src and generate to public
+$ coffee app.coffee    # Serve files from the public dir on port 3000
 
-$ coffee app.coffee   # Serves files locally from the public dir on port 3000
-
-$ grunt dist          # generates files for deployment to dist
-$ grunt dist --war    # generates a servlet for deployment to dist
+# Build for deployment
+$ grunt dist           # generates files for deployment to dist
+$ grunt dist --war     # generates a servlet for deployment to dist
 ```
 
 If you’re not, read the rest of the page.
