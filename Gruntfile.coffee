@@ -92,9 +92,9 @@ module.exports = (grunt) ->
   # $ grunt dist
   # $ grunt dist --war
   grunt.registerTask 'dist', ->
-    grunt.config "dist", true
+    grunt.config "forDist", true
     grunt.task.run [
-      "clean:dist"
+      # "clean:dist"
       "sass"
       "coffee"
       "uglify"
