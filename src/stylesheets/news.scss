@@ -3,7 +3,7 @@ section.news {
   @include box-sizing(border-box);
 
   ul {
-    list-style: none;
+    list-style: none; 
     margin: 0;
     padding: 0;
   }
@@ -21,7 +21,7 @@ section.news {
         @include columns(6, true, 3%);
       }
     }
-    @media (max-width: 26em) {
+    @media (max-width: 26em) { 
       &:nth-child(n) {
         @include columns(12);
       }
@@ -29,7 +29,7 @@ section.news {
   }
   > div:last-child{
     margin-bottom: 1.5em;
-    @include columns(3, false, 3%);
+    @include columns(3, true, 3%);
     &:last-child {
       @include columns(3, true, 3%);
     }
@@ -100,7 +100,7 @@ section.news {
     @include box-sizing(border-box);
   }
   img {
-    @include box-sizing(border-box);
+    @include box-sizing(border-box);  
     position: absolute;
     z-index: 1;
     display: block;
