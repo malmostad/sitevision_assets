@@ -1,0 +1,16 @@
+.body-copy .full > img {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 1em
+}
+
+.body-copy p.sv-portlet-image-caption {
+    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    font-size: 0.875em;
+    line-height: 1.2;
+    margin: 0 0 1.5em
+    font-style: normal;
+}
+.body-copy img+p.sv-portlet-image-caption {
+    margin-top: -.8em;
+}
