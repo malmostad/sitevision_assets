@@ -18,13 +18,15 @@ section.movies {
     @media (min-width: 38em) and (max-width: 51.99em) {
       &:nth-child(3n+1) {
         @include columns(4, false, 3%);
-        clear:both;
       }
       &:nth-child(3n+2), &:nth-child(3n+2) {
         @include columns(4, false, 3%);
       }
       &:nth-child(3n) {
         @include columns(4, true, 3%);
+      }
+      &:nth-child(3n+4) {
+        clear: left;
       }
     }
     @media (min-width: 26em) and (max-width: 37.99em) {
@@ -34,10 +36,14 @@ section.movies {
       &:nth-child(2n) {
         @include columns(6, true, 4%);
       }
+      &:nth-child(2n+3) {
+        clear: left;
+      }
     }
     @media (max-width: 25.99em) {
       &:nth-child(n+0) {
         @include columns(12, true);
+        clear: left;
       }
     }
   }
