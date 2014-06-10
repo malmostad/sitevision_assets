@@ -18,6 +18,7 @@ section.movies {
     @media (min-width: 38em) and (max-width: 51.99em) {
       &:nth-child(3n+1) {
         @include columns(4, false, 3%);
+        clear:both;
       }
       &:nth-child(3n+2), &:nth-child(3n+2) {
         @include columns(4, false, 3%);
