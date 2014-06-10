@@ -27,26 +27,17 @@ section.news {
       }
     }
   }
-  > div:last-child{
+  > .sv-archive-portlet{
     margin-bottom: 1.5em;
     @include columns(3, true, 3%);
-    &:last-child {
-      @include columns(3, true, 3%);
-    }
     @media (max-width: 48em) {
-      &:nth-child(2n+1) {
-        @include columns(6, false, 3%);
-      }
-      &:nth-child(2n) {
-        @include columns(6, true, 3%);
-      }
+      @include columns(6, true, 3%);
     }
-    @media (max-width: 26em) {
-      &:nth-child(n) {
-        @include columns(12);
-      }
+    @media (max-width: 26em) { 
+      @include columns(12);
     }
-  }  
+  }
+
   h1 {
     display: block;
     font-size: emize(16);
@@ -76,7 +67,7 @@ section.news {
   }
 
   li li,
-  .news li{
+  .sv-archive-portlet li{
     margin-bottom: .6em;
   }
 
