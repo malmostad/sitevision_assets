@@ -27,17 +27,6 @@ section.news {
       }
     }
   }
-  > .sv-archive-portlet{
-    margin-bottom: 1.5em;
-    @include columns(3, true, 3%);
-    @media (max-width: 48em) {
-      @include columns(6, true, 3%);
-    }
-    @media (max-width: 26em) { 
-      @include columns(12);
-    }
-  }
-
   h1 {
     display: block;
     font-size: emize(16);
@@ -53,7 +42,7 @@ section.news {
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: $serif;
-    font-size: emize(18);
+    font-size: emize(21);
     line-height: 1.3;
     @media (max-width: 58em) { font-size: emize(16) }
     @media (max-width: 48em) { font-size: emize(18) }
@@ -65,9 +54,26 @@ section.news {
       font-size: .75em;
     }
   }
-
+  > .sv-script-portlet,
+  > .sv-archive-portlet{
+    margin-bottom: 1.5em;
+    @include columns(3, true, 3%);
+    @media (max-width: 48em) {
+      @include columns(6, true, 3%);
+    }
+    @media (max-width: 26em) { 
+      @include columns(12);
+    }
+    ul h2{
+      font-family: $sans-serif;      
+      font-size: 0.875em;
+        .date {          
+          font-size: 1em;
+        }
+    }
+  }
   li li,
-  .sv-archive-portlet li{
+  .sv-script-portlet li{
     margin-bottom: .6em;
   }
 
