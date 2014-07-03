@@ -1,4 +1,4 @@
-$ ->
+jQuery ($) ->
   $("aside.feedback .trigger").click ->
     $(@).hide()
     $("aside.feedback form").slideDown(100)

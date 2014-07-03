@@ -1,4 +1,4 @@
-$ ->
+jQuery ($) ->
   $("aside.contact-us .write-to-us").click (event) ->
     event.preventDefault()
     $(@).hide()
