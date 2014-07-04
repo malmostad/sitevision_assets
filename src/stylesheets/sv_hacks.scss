@@ -1,0 +1,24 @@
+body a{
+    color:#007896;
+}
+.sv-editing-mode #malmo-masthead {
+    top: 30px;
+    z-index:999999;
+}
+body.mf-v4 {
+    margin: 3em 0 0;
+}
+.sv-editing-mode{
+    margin-top:84px !important;
+}
+a.body, body a, .body a, a.portlet-font, a.portlet-font-label, a.portlet-font-dim, a.portlet-msg-status, a.portlet-msg-info, a.portlet-msg-error, a.portlet-msg-alert, a.portlet-section-selected, a.portlet-section-footer, a.portlet-form-label, a.portlet-form-input-field, a.portlet-form-button, a.portlet-icon-label, a.portlet-dlg-icon-label, a.portlet-form-field-label, a.portlet-form-field, a.portlet-menu, a.portlet-menu-item, a.portlet-menu-item-selected, a.portlet-menu-item-hover, a.portlet-menu-item-hover-selected, a.portlet-menu-cascade-item, a.portlet-menu-cascade-item-selected, a.portlet-menu-description, a.portlet-menu-caption, a.sv-portlet-link-description, a.sv-portlet-primary-paragraph, a.normal, .portlet-font a, .portlet-font-label a, .portlet-font-dim a, .portlet-msg-status a, .portlet-msg-info a, .portlet-msg-error a, .portlet-msg-alert a, .portlet-section-selected a, .portlet-section-footer a, .portlet-form-label a, .portlet-form-input-field a, .portlet-form-button a, .portlet-icon-label a, .portlet-dlg-icon-label a, .portlet-form-field-label a, .portlet-form-field a, .portlet-menu a, .portlet-menu-item a, .portlet-menu-item-selected a, .portlet-menu-item-hover a, .portlet-menu-item-hover-selected a, .portlet-menu-cascade-item a, .portlet-menu-cascade-item-selected a, .portlet-menu-description a, .portlet-menu-caption a, .sv-portlet-link-description a, .sv-portlet-primary-paragraph a, .normal a{
+    font-family:inherit;
+}
+.sv-kontaktruta-stadsomraden-portlet {
+	overflow: hidden;
+	height: auto;
+	width: 100%;
+}
+footer.bigfoot div.navs nav > div{
+    width:100%;
+}
