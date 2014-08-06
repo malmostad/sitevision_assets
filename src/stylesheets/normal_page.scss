@@ -21,7 +21,10 @@
     height: auto !important;
     margin: 0 0 1em;
 }
-
+.body-copy .img-secondary > img{
+    width:auto !important;
+    height:auto !important;
+}
 .box .box-content p, 
 .box .box-content li {
 	font-size:15px !important;
@@ -34,7 +37,7 @@
     margin: 0 0 1.5em;
     font-style: normal;
 }
-.body-copy img+p.sv-portlet-image-caption {
+.body-copy .full img+p.sv-portlet-image-caption {
     margin-top: -.55em;
 }
 

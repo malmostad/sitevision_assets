@@ -15,10 +15,21 @@ a.body, body a, .body a, a.portlet-font, a.portlet-font-label, a.portlet-font-di
     font-family:inherit;
 }
 .sv-kontaktruta-stadsomraden-portlet {
-	overflow: hidden;
 	height: auto;
 	width: 100%;
 }
 footer.bigfoot div.navs nav > div{
     width:100%;
+}
+.body-copy a.normal:hover,
+.body-copy .normal > a:hover {
+	text-decoration: underline;
+}
+nav.nav-page-with-direct-links {
+	h2{ 
+		a {
+			font-size: inherit;
+			font-weight: inherit;
+		}
+	}
 }
