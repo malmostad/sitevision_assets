@@ -7,7 +7,8 @@ nav.nav-page-with-direct-links {
       margin-top: -.5em;
     }
   }
-  > h1 {
+  > h1,
+  > .sv-script-portlet > h1 {
     font-family: $serif;
     font-weight: normal;
     font-size: emize(34, 16);
@@ -15,7 +16,7 @@ nav.nav-page-with-direct-links {
     margin: .1em 0 .3em;
   }
 
-  > ul {
+  > ul,.popular{
     @include clearfix();
     font-family: $sans-serif;
     margin: 1.5em 0 .5em;
@@ -51,7 +52,8 @@ nav.nav-page-with-direct-links {
     }
   }
 
-  > ul > li li {
+  > ul > li li,
+  .popular > li li {
     font-size: emize(14);
   }
 
@@ -63,7 +65,8 @@ nav.nav-page-with-direct-links {
     padding: 0;
   }
 
-  > ul > li > a {
+  > ul > li > a,
+  .popular > li > h2 > a {
     padding-top: emize(9, 16);
     padding-bottom: emize(9, 16);
   }
