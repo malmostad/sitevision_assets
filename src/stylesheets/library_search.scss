@@ -1,0 +1,48 @@
+section.library-search {
+  margin: 1.3em 0 2em ;
+
+  label.control-label {
+  }
+
+  .input-group {
+    margin-bottom: .5em;
+    *width: 90%;
+    .btn-lg {
+      height: 46px; // Bugfix for Bootstrap
+    }
+  }
+
+  .account {
+    display: inline-block;
+    font-family: $sans-serif;
+    font-size: emize(14);
+    color: #000;
+    margin-top: .6em;
+  }
+
+  .form-group {
+    select.library {
+      float: left;
+      width: auto;
+      min-width: 16em;
+      margin-right: 2em;
+    }
+    .account {
+      font-size: emize(14, 14);
+      margin-top: .4em
+    }
+  }
+  @media (max-width: 48em) {
+    button span {
+      display: none;
+    }
+  }
+  @media (max-width: 34em) {
+    .form-group {
+      select.library {
+        float: none;
+        margin-bottom: .6em;
+      }
+    }
+  }
+}
