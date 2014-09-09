@@ -33,3 +33,16 @@ nav.nav-page-with-direct-links {
 		}
 	}
 }
+
+.newArticleLinks a{
+	color:#000;
+	text-decoration:underline;
+	display:block;    
+	font-family: "trebuchet ms",sans-serif,sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	font-size: 13px;
+	&:last-child{
+  		margin-bottom:10px;
+	}
+}
