@@ -5,8 +5,8 @@ body a{
     top: 30px;
     z-index:999999;
 }
-body.mf-v4 {
-    margin: 3em 0 0;
+body > div > .mf-v4 {
+    margin-top: 3em;
 }
 .sv-editing-mode{
     margin-top:84px !important;
