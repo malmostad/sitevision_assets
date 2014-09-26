@@ -92,6 +92,7 @@ module.exports = (grunt) ->
   # $ grunt dist
   # $ grunt dist --war
   grunt.registerTask 'dist', ->
+    grunt.log.writeln("\nYOUR GRUNT ENCODING IS: " + grunt.file.defaultEncoding + " (must be utf8)")
     grunt.config "forDist", true
     grunt.task.run [
       "clean:dist"
