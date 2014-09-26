@@ -23,7 +23,7 @@ footer.bigfoot div.navs nav > div{
 	text-decoration: underline;
 }
 nav.nav-page-with-direct-links {
-	h2{ 
+	h2{
 		a {
 			font-size: inherit;
 			font-weight: inherit;
@@ -34,7 +34,7 @@ nav.nav-page-with-direct-links {
 .newArticleLinks a{
 	color:#000;
 	text-decoration:underline;
-	display:block;    
+	display:block;
 	font-family: "trebuchet ms",sans-serif,sans-serif;
 	font-weight: bold;
 	font-style: normal;
@@ -46,4 +46,23 @@ nav.nav-page-with-direct-links {
 
 .body-copy .pagecontent{
 	overflow:hidden;
+}
+
+.no-content {
+  position: relative;
+  border: $danger-color 3px solid;
+  padding: 2em 1em;
+  &::before {
+    padding: .2em .8em .3em;
+    top: 0;
+    left: 0;
+    content: 'Detta innehåll ska tas bort';
+    position: absolute;
+    color: #fff;
+    background-color: $danger-color;
+    font-family: $sans-serif;
+    text-transform: uppercase;
+    font-size: emize(12);
+    letter-spacing: .2em;
+  }
 }

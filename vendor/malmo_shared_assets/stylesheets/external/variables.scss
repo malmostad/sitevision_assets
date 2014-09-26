@@ -35,7 +35,8 @@ $box-shadow: 2px 2px 3px #ccc;
 
 // Status messages
 $success-background: #eafcea;
-$success-border: 1px solid desaturate(darken($success-background, 50%), 40%);
+$success-color: #359a1a;
+$success-border: 1px solid $success-color;
 $warning-background: #fffcd0;
 $warning-color: #c00;
 $warning-border: 1px solid $warning-color;
