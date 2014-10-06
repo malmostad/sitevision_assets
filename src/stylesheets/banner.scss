@@ -46,6 +46,14 @@
     font-size: emize(14);
     margin: 0;
   }
+
+  &:hover {
+    div {
+      background: #000;
+      color: #fff;
+    }
+  }
+
   &.inverted {
     div.overlay {
       z-index: 2;
@@ -53,6 +61,12 @@
     }
     div {
       color: #fff;
+    }
+    &:hover {
+      div {
+        background: #fff;
+        color: #000;
+      }
     }
   }
   @media (max-width: 48em) {
