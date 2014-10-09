@@ -22,8 +22,8 @@
     margin: 0 0 1em;
 }
 .body-copy .img-secondary img{
-    width:100%;
-    height:auto;
+    width:100% !important; 
+    height:auto !important;
 }
 .box .box-content p, 
 .box .box-content li {
