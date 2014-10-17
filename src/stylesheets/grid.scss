@@ -1,12 +1,13 @@
 .wrapper {
   @include clearfix();
-  margin: 3em auto 1em auto;
+  margin: 1em auto;
   max-width: 55em;
   padding: 0 1em;
 }
 
 section.body-copy,
-article.body-copy {
+article.body-copy,
+main.news-archive {
   clear: both;
   @include columns(8, false, 4%);
   margin-bottom: 1em;
@@ -24,7 +25,8 @@ nav.basic {
 
   article.body-copy,
   nav.content,
-  nav.basic {
+  nav.basic,
+  main.news-archive {
     @include columns(12);
   }
 }
@@ -39,5 +41,5 @@ nav.basic {
 }
 
 .m-share {
-  margin-top: 2em;
+  margin-bottom: .5em;
 }
