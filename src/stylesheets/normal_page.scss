@@ -16,10 +16,13 @@
 	color:#fff;
 }
 
-.body-copy .full img {
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 0 1em;
+.body-copy div.full {
+    >img,
+    > a > img{
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 0 1em;
+    }
 }
 .body-copy .img-secondary img{
     width:100% !important; 
