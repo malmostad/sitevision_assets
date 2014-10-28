@@ -1,30 +1,17 @@
-jQuery ($) ->
-	$("aside.contact-us .write-to-us").click (event) ->
-		event.preventDefault()
-		$(@).hide()
-		el = $(this)
-		while el.prev().length is 1
-			el = el.prev()
-			if el.hasClass("write-to-us-form")
-				el.slideDown 100
-				break
-		$('html, body').animate  
-			scrollTop: el.offset().top - 35
-			, 100 	
-			
-			 $("aside.contact-us .write-to-us").click (event) ->
+jQuery ($) -> 
+  $("aside.contact-us .write-to-us").click (event) -> 
+  event.preventDefault()
+  $trigger = $(@)
+
+  # Clone form template
+  $form = $("#contact-us-form-template").clone()
+  $form.removeAttr("id")
+
+  # Post the form w/ Ajax on submit
+  $form.submit (event) ->
     event.preventDefault()
-    $trigger = $(@)
-
-    # Clone form template
-    $form = $("#contact-us-form-template").clone()
-    $form.removeAttr("id")
-
-    # Post the form w/ Ajax on submit
-    $form.submit (event) ->
-      event.preventDefault()
-      $form.find("input[type=submit]").val("Skickar meddelande ...").attr("disabled", "disabled")
-      $.ajax
+    $form.find("input[type=submit]").val("Skickar meddelande ...").attr("disabled", "disabled")
+    $.ajax
         type: "POST"
         url: $trigger.attr('data-action')
         data: $form.serialize() + "&contactid=#{$trigger.attr('data-contact-id')}"
@@ -46,8 +33,7 @@ jQuery ($) ->
 
     # Scroll to top of form
     $('html, body').animate
-      scrollTop: $form.offset().top - 45
-    , 100
+      scrollTop: $form.offset().top - 45, 100
 
   # District selector for Contact us
   if $("aside.contact-us.multi-district").length
