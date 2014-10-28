@@ -1,0 +1,70 @@
+ol.object-listing {
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0;
+  li {
+    margin: 0 0 2em;
+    padding: 0;
+    @include clearfix();
+  }
+
+  h2 {
+    margin: 0;
+  }
+  .meta {
+    font-family: $sans-serif;
+    font-size: emize(14, 17);
+  }
+  p {
+    margin-bottom: .5em;
+  }
+
+  &.portrait {
+    div.image {
+      @include columns(3, false, 4%);
+      float: left;
+      margin-top: .35em;
+      img {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+
+    div.text {
+      @include columns(9, true, 4%);
+      float: right;
+    }
+  }
+
+  &.landscape {
+    div.image {
+      @include columns(4, false, 4%);
+      float: left;
+      margin-top: .35em;
+      img {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+    div.text {
+      @include columns(8, true, 4%);
+      float: right;
+    }
+  }
+
+  &.landscape, &.portrait {
+    @media (max-width: 28em) {
+      li {
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        border-bottom: $border;
+      }
+      div.text, div.image {
+        @include columns(12);
+      }
+      div.image {
+        margin-top: .5em;
+      }
+    }
+  }
+}
