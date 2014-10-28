@@ -90,3 +90,47 @@ main.news-archive>section a {
 nav.basic .current a{
     font-weight:inherit;
 }
+
+.sv-form-portlet,
+.sv-survey-portlet,
+.sv-signup-portlet{
+  form{
+    select,
+    textarea,
+    input[type="text"],
+    input[type="password"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="date"],
+    input[type="month"],
+    input[type="time"],
+    input[type="week"],
+    input[type="number"],
+    input[type="email"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="color"]{  
+      width:100%;
+    }
+  }
+  .sv-form-subalternativefield select{
+    width:auto;
+  }
+}
+.sv-form-portlet form fieldset.sv-form-userattributefield > div {
+  width: 49%;
+  @media (max-width: 20em) {
+    width:100%;
+  }
+}
+.sv-signup-portlet form > div input.svhidden ~ div,
+.sv-signup-portlet form > div > div input.svhidden ~ div,
+.sv-form-portlet form input[id^='mailname'] ~ div,
+.sv-survey-portlet > div > div + div{
+  margin-bottom:10px;
+}
+.sv-signup-portlet form > div > div:first-child{
+  float:none !important;
+  margin:0;
+}
