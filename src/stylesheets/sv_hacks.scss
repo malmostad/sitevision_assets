@@ -113,10 +113,10 @@ nav.basic .current a{
     input[type="color"]{  
       width:100%;
     }
-  }
-  .sv-form-subalternativefield select{
-    width:auto;
-  }
+    .sv-form-datefield select{
+      width:auto;
+    }
+  } 
 }
 .sv-form-portlet form fieldset.sv-form-userattributefield > div {
   width: 49%;
@@ -127,10 +127,15 @@ nav.basic .current a{
 .sv-signup-portlet form > div input.svhidden ~ div,
 .sv-signup-portlet form > div > div input.svhidden ~ div,
 .sv-form-portlet form input[id^='mailname'] ~ div,
-.sv-survey-portlet > div > div + div{
-  margin-bottom:10px;
+.sv-survey-portlet form > div > div:last-child > div > div{
+  margin-bottom:1em !important;
 }
 .sv-signup-portlet form > div > div:first-child{
   float:none !important;
   margin:0;
+  +div{
+    background-color: #fff;
+    padding: 0;
+    border: 0;
+  }
 }
