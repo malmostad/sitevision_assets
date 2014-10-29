@@ -116,26 +116,37 @@ nav.basic .current a{
     .sv-form-datefield select{
       width:auto;
     }
+    .sv-form-subalternativefield{
+      >legend + div{
+        width:100%;
+      }
+    }
   } 
 }
-.sv-form-portlet form fieldset.sv-form-userattributefield > div {
-  width: 49%;
-  @media (max-width: 20em) {
-    width:100%;
+
+.sv-form-portlet form {
+  fieldset.sv-form-userattributefield > div {
+    width: 49%;
+    @media (max-width: 20em) {
+      width:100%;
+    }
   }
 }
 .sv-signup-portlet form > div input.svhidden ~ div,
 .sv-signup-portlet form > div > div input.svhidden ~ div,
 .sv-form-portlet form input[id^='mailname'] ~ div,
-.sv-survey-portlet form > div > div:last-child > div > div{
+.sv-survey-portlet form > div > div:last-child > div > div,
+.sv-survey-portlet form > div > div[style^=padding-bottom],
+.sv-editing-mode .sv-survey-portlet > div[style^=padding-bottom]{
   margin-bottom:1em !important;
+  padding-bottom:0;
 }
 .sv-signup-portlet form > div > div:first-child{
   float:none !important;
   margin:0;
   +div{
-    background-color: #fff;
-    padding: 0;
-    border: 0;
+    background-color: #fff !important;
+    padding: 0 !important;
+    border: 0 !important;
   }
 }
