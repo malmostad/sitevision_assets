@@ -7,23 +7,28 @@ jQuery ($) ->
     $form = $("#contact-us-form-template").clone()
     $form.removeAttr("id")
 
-    # Post the form w/ Ajax on submit
-    $form.submit (event) ->
-      event.preventDefault()
-      $form.find("input[type=submit]").val("Skickar meddelande ...").attr("disabled", "disabled")
-      $.ajax
-        type: "POST"
-        url: $trigger.attr('data-action')
-        data: $form.serialize() + "&contactid=#{$trigger.attr('data-contact-id')}"
-        success: (data) ->
-          $form.replaceWith(data)
-        error: (x, y, z) ->
-          # Server error or timeout, nothing to do
-          # FIXME: Uncomment the real error message
-          $form.after('<div class="error">Ett fel inträffade, vänligen försök senare eller skicka ditt meddelande till nedanstående e-postadress.</div>')
-
     # Replace the trigger w/ the form
     $trigger.replaceWith($form.show())
+
+    $(document).on "click", ".write-to-us-form input[type=submit]", ->
+      $form = $(@).closest("form")
+      $form.submit (event) ->
+        event.preventDefault()
+        $form.find("input[type=submit]").val("Skickar meddelande ...").attr("disabled", "disabled")
+        $.ajax
+          type: "POST"
+          url: $trigger.attr('data-action')
+          data: $form.serialize() + "&contactid=#{$trigger.attr('data-contact-id')}"
+          success: (data) ->          
+            console.log("success")
+            console.log($form)
+            $form.replaceWith(data)
+            $('.contact-us').find('form:first').show()
+          error: (x, y, z) ->
+            # Server error or timeout, nothing to do
+            # FIXME: Uncomment the real error message      
+            console.log("error")
+            $form.after('<div class="error">Ett fel inträffade, vänligen försök senare eller skicka ditt meddelande till nedanstående e-postadress.</div>')                                        
 
     # Scroll to top of form
     $('html, body').animate
