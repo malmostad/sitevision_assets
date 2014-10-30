@@ -1,54 +1,58 @@
-
 .body-copy a,
 .body-copy a.normal,
 .body-copy .normal a,
-.body-copy a.normal  {
-	font-size:100% !important;
-    font-weight: normal;
-    font-style: normal;
-    color: $link-color;
-    text-decoration: none;
+.body-copy a.normal {
+  font-size: 100% !important;
+  font-weight: normal;
+  font-style: normal;
+  color: $link-color;
+  text-decoration: none;
 }
 
-.mf-v4 .btn-primary, 
-.mf-v4 .act-now a, 
+.mf-v4 .btn-primary,
+.mf-v4 .act-now a,
 .act-now .mf-v4 a {
-	color:#fff;
+  color: #fff;
 }
 
 .body-copy div.full {
-    >img,
-    > a > img{
-        width: 100% !important;
-        height: auto !important;
-        margin: 0 0 1em;
-    }
+  >img,
+  > a > img {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 0 1em;
+  }
 }
-.body-copy .img-secondary img{
-    width:100% !important; 
-    height:auto !important;
+
+.body-copy .img-secondary img {
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: .3em;
 }
-.box .box-content p, 
+
+.box .box-content p,
 .box .box-content li {
-	font-size:15px !important;
+  font-size: 15px !important;
 }
 
 .body-copy p.sv-portlet-image-caption {
-    font-family: $sans-serif;
-    font-size: 0.875em;
-    line-height: 1.2;
-    margin: 0 0 1.5em;
-    font-style: normal;
+  font-family: $sans-serif;
+  font-size: .875em;
+  line-height: 1.2;
+  margin: 0 0 1.5em;
+  font-style: normal;
 }
+
 .body-copy .full img+p.sv-portlet-image-caption {
-    margin-top: -.55em;
+  margin-top: -.7em;
 }
 
 .contact-box {
-	clear:both;
+  clear: both;
 }
-.body-copy .sv-channel{
-    margin:0;
-    list-style:none;
-    padding:0px;
+
+.body-copy .sv-channel {
+  margin: 0;
+  list-style: none;
+  padding: 0;
 }
