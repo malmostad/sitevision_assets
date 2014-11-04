@@ -2,9 +2,9 @@ jQuery ($) ->
   $("aside.contact-us .write-to-us").click (event) -> 
     event.preventDefault()
     $trigger = $(@)
- 
+    $that = $trigger.parent()
     # Clone form template
-    $form = $("#contact-us-form-template").clone()
+    $form = $("aside.contact-us.basic > form.write-to-us-form").clone()
     $form.removeAttr("id")
 
     # Replace the trigger w/ the form
@@ -22,8 +22,8 @@ jQuery ($) ->
           success: (data) ->          
             console.log("success")
             console.log($form)
-            $form.replaceWith(data)
-            $('.contact-us').find('form:first').show()
+            $form.replaceWith(data)						
+            $that.find('form').show()
           error: (x, y, z) ->
             # Server error or timeout, nothing to do
             # FIXME: Uncomment the real error message      
