@@ -16,8 +16,9 @@ $ grunt watch          # watch `src` and generate to `public`
 $ coffee app.coffee    # serve files from `public` on port 3000
 
 # Build for deployment
-$ grunt dist           # generate files to `dist` for deployment
-$ grunt dist --war     # generate a servlet to `dist` for deployment
+$ grunt dist                        # generate files to `dist` for deployment
+$ grunt dist --war                  # generate a servlet to `dist` for deployment
+$ grunt dist --sourcemaps --war     # generate a servlet to `dist` for deployment in test with sourcemaps
 ```
 
 If you’re not, read the rest of the instructions.

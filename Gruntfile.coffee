@@ -10,6 +10,7 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */'
     forDist: false
+    generateSourceMaps: true
 
     # $ grunt sass
     sass:
@@ -17,7 +18,7 @@ module.exports = (grunt) ->
         options:
           style: '<%= forDist ? "compressed" : "expanded" %>'
           banner: '<%= banner %>'
-          sourcemap: grunt.option('sourcemaps')
+          sourcemap: '<%= generateSourceMaps ? "file" : "none" %>'
         files: [
           expand: true
           cwd: 'src/stylesheets'
@@ -35,7 +36,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         options:
-          sourceMap: grunt.option('sourcemaps')
+          sourceMap: '<%= generateSourceMaps %>'
         files:
           '<%= forDist ? "dist" : "public" %>/application.js': [
             # Files to compile and concatenate in given order
@@ -82,7 +83,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: 'dist'
-          src: ['*.js', '*.css']
+          src: ['*.js', '*.css', '*.map']
           dest: ''
         ]
 
@@ -94,6 +95,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'dist', ->
     grunt.log.writeln("\nYOUR GRUNT ENCODING IS: " + grunt.file.defaultEncoding + " (must be utf8)")
     grunt.config "forDist", true
+    grunt.config "generateSourceMaps", grunt.option('sourcemaps') or false
     grunt.task.run [
       "clean:dist"
       "sass"
