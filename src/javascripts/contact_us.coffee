@@ -19,15 +19,10 @@ jQuery ($) ->
           type: "POST"
           url: $trigger.attr('data-action')
           data: $form.serialize() + "&contactid=#{$trigger.attr('data-contact-id')}"
-          success: (data) ->          
-            console.log("success")
-            console.log($form)
+          success: (data) ->                      
             $form.replaceWith(data)						
             $that.find('form').show()
-          error: (x, y, z) ->
-            # Server error or timeout, nothing to do
-            # FIXME: Uncomment the real error message      
-            console.log("error")
+          error: (x, y, z) ->   
             $form.after('<div class="error">Ett fel inträffade, vänligen försök senare eller skicka ditt meddelande till nedanstående e-postadress.</div>')                                        
 
     # Scroll to top of form
