@@ -46,14 +46,14 @@ jQuery ($) ->
     showDistrictContact = (district) ->
       # Hide all contact cards
       $("aside.contact-us.multi-district .vcard").hide()
-      $("aside.contact-us.multi-district .error").remove()
+      $("aside.contact-us.multi-district .no-district-available").remove()
 
       # Show selected contact card
       $chosen = $("#district-#{district}")
       if($chosen.length)
         $chosen.show()
       else
-        $chooseDistrict.after('<div class="error">Kontaktinformation för valt stadsområde saknas.</div>')
+        $chooseDistrict.after('<div class="no-district-available">Kontaktinformation för valt stadsområde saknas.</div>')
 
       # Set district in select menu
       $selectDistrict.val district
