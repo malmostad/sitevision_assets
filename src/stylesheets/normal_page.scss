@@ -3,7 +3,8 @@
 .body-copy .normal a,
 .body-copy a.normal {
   font-size: 100% !important;
-  font-weight: normal;
+  font-weight: inherit;
+  font-family: inherit;
   font-style: normal;
   color: $link-color;
   text-decoration: none;
