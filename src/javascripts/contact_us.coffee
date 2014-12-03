@@ -1,4 +1,32 @@
 jQuery ($) ->  
+  
+  # The form
+  $chooseDistrict = $("#choose-district")
+
+  showDistrictContact = (district) ->
+        # The form
+        $chooseDistrict = $("#choose-district")
+
+        # Hide all contact cards
+        $("aside.contact-us.multi-district .vcard").hide()
+        $("aside.contact-us.multi-district .no-district-available").remove()
+
+        # Show selected contact card
+        $chosen = $("#district-#{district}")
+        if($chosen.length)
+          $chosen.show()
+        else
+          $chooseDistrict.after('<div class="no-district-available">Kontaktinformation för valt stadsområde saknas.</div>')
+
+        # Set district in select menu
+        $selectDistrict.val district
+
+        # Set selected district in cookie
+        $.cookie('city-district', district, { expires: 365, path: '/' } )
+  
+  $(document.body).on "change", $chooseDistrict.find("select"), ->
+    showDistrictContact $chooseDistrict.find("select").val()
+
   $("aside.contact-us .write-to-us").click (event) -> 
     event.preventDefault()
     $trigger = $(@)
@@ -20,7 +48,7 @@ jQuery ($) ->
           url: $trigger.attr('data-action')
           data: $form.serialize() + "&contactid=#{$trigger.attr('data-contact-id')}"
           success: (data) ->                      
-            $form.replaceWith(data)						
+            $form.replaceWith(data)           
             $that.find('form').show()
           error: (x, y, z) ->   
             $form.after('<div class="error">Ett fel inträffade, vänligen försök senare eller skicka ditt meddelande till nedanstående e-postadress.</div>')                                        
@@ -34,32 +62,11 @@ jQuery ($) ->
   if $("aside.contact-us.multi-district").length
     $.cookie.json = true
 
-    # The form
-    $chooseDistrict = $("#choose-district")
-
     # Prevent the form for being submited
     $chooseDistrict.submit -> event.preventDefault()
 
     # Selectbox
     $selectDistrict = $chooseDistrict.find("select")
-
-    showDistrictContact = (district) ->
-      # Hide all contact cards
-      $("aside.contact-us.multi-district .vcard").hide()
-      $("aside.contact-us.multi-district .no-district-available").remove()
-
-      # Show selected contact card
-      $chosen = $("#district-#{district}")
-      if($chosen.length)
-        $chosen.show()
-      else
-        $chooseDistrict.after('<div class="no-district-available">Kontaktinformation för valt stadsområde saknas.</div>')
-
-      # Set district in select menu
-      $selectDistrict.val district
-
-      # Set selected district in cookie
-      $.cookie('city-district', district, { expires: 365, path: '/' } )
 
     # Select district from cookie on load
     storedDistrict = $.cookie('city-district')
@@ -67,10 +74,6 @@ jQuery ($) ->
       showDistrictContact storedDistrict
     else
       $("aside.contact-us.multi-district .vcard").hide()
-
-    # District selector is changed by user or address search
-    $selectDistrict.change ->
-      showDistrictContact $(@).val()
 
     # Autocomplete for street addresses
     # Get address suggestions w/ districts from SBK's map service
