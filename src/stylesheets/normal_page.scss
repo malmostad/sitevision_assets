@@ -13,7 +13,10 @@
 .mf-v4 .btn-primary,
 .mf-v4 .act-now a,
 .act-now .mf-v4 a {
-  color: #fff;
+  color: #fff;  
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
 }
 
 .body-copy div.full {
