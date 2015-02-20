@@ -1,4 +1,4 @@
-.banner {
+.banner,.big-banner {
   @include box-sizing(border-box);
   font-family: $sans-serif;
   position: relative;
