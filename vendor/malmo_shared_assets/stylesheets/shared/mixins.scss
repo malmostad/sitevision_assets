@@ -90,6 +90,31 @@
   transform: rotate($deg);
 }
 
+@mixin column-width($value) {
+  -webkit-column-width: $value;
+  -moz-column-width: $value;
+  column-width: $value;
+}
+
+@mixin column-gap($value) {
+  -webkit-column-gap: $value;
+  -moz-column-gap: $value;
+  column-gap: $value;
+}
+
+@mixin column-rule($value) {
+  -webkit-column-rule: $value;
+  -moz-column-rule: $value;
+  column-rule: $value;
+}
+
+@mixin hyphens($value) {
+  -ms-hyphens: $value;
+  -webkit-hyphens: $value;
+  -moz-hyphens: $value;
+  hyphens: $value;
+}
+
 @mixin clearfix() {
   *zoom: 1;
   &:before,

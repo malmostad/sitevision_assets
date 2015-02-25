@@ -10,6 +10,7 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */'
     forDist: false
+    forIntra: false
     generateSourceMaps: true
 
     # $ grunt sass
@@ -24,7 +25,7 @@ module.exports = (grunt) ->
           cwd: 'src/stylesheets'
           src: [
             # Use the Sass declarations `@import` in the main scss file application.scss
-            'application.scss'
+            '<%= forIntra ? "application-intra.scss" : "application.scss" %>'
             # Individual files
             'ie7.scss'
           ]
@@ -89,12 +90,37 @@ module.exports = (grunt) ->
 
   # $ grunt build
   grunt.registerTask 'build', ["clean:build", "sass", "coffee"]
+  
+  # $ grunt build-intra
+  grunt.registerTask 'build-intra', ->          
+    grunt.config "forIntra", true
+    grunt.task.run [
+      "clean:build"
+      "sass"
+      "coffee"      
+    ]
 
   # $ grunt dist
   # $ grunt dist --war
   grunt.registerTask 'dist', ->
     grunt.log.writeln("\nYOUR GRUNT ENCODING IS: " + grunt.file.defaultEncoding + " (must be utf8)")
     grunt.config "forDist", true
+    grunt.config "generateSourceMaps", grunt.option('sourcemaps') or false
+    grunt.task.run [
+      "clean:dist"
+      "sass"
+      "coffee"
+      "uglify"
+    ]
+    grunt.task.run "war" if grunt.option('war')
+
+
+  # $ grunt dist-intra
+  # $ grunt dist-intra --war
+  grunt.registerTask 'dist-intra', ->
+    grunt.log.writeln("\nYOUR GRUNT ENCODING IS: " + grunt.file.defaultEncoding + " (must be utf8)")
+    grunt.config "forDist", true
+    grunt.config "forIntra", true
     grunt.config "generateSourceMaps", grunt.option('sourcemaps') or false
     grunt.task.run [
       "clean:dist"

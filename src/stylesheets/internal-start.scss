@@ -1,0 +1,190 @@
+section.start-page-main {
+  @include columns(8, false, 4%);
+  margin-bottom: 1em;
+  overflow: hidden;
+  @media (max-width: 48em) {
+    @include columns(12, true);
+    margin-bottom: 2em;
+  }
+
+  section {
+    margin-bottom: 2em;
+    h1 {
+      @extend %h1.aside;
+      margin: 1.5em 0 .5em;
+    }
+
+    .more {
+      margin-top: -.5em;
+      a {
+        font-family: $sans-serif;
+        font-size: emize(14, 16);
+        display: inline-block;
+        margin-right: 1em;
+      }
+    }
+    .date {
+      display: inline-block;
+      font-family: $sans-serif;
+      font-size: emize(14, 17);
+      white-space: nowrap;
+    }
+  }
+
+  section.primary-news,
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      @include clearfix();
+      margin: 0 0 1em;
+      padding: 0;
+    }
+  }
+
+  section.primary-news {
+    .img {
+      @include columns(2.5, false, 3%);
+      margin-top: .3em;
+      background: $background-light;
+    }
+    .text {
+      @include columns(9.5, true, 3%);
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: emize(24);
+      @media (max-width: 32em) {
+        font-size: emize(20);
+      }
+      margin: 0 0 .2em;
+    }
+    p {
+      font-size: emize(17);
+      line-height: emize(23, 17);
+      margin: 0;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border: 0;
+    }
+  }
+
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    .text {
+      @include columns(10.5, true, 2%);
+      @media (max-width: 32em) {
+        @include columns(9.5, true, 3%);
+      }
+    }
+    .img {
+      @include columns(1.5, false, 2%);
+      @media (max-width: 32em) {
+        @include columns(2.5, false, 3%);
+      }
+      margin-top: .2em;
+      background: $background-light;
+      img {
+        width: 100%;
+        height: auto;
+        border: 0;
+      }
+    }
+
+    li {
+      @include clearfix();
+      margin: 0 0 1em;
+      padding: 0;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: emize(17);
+      margin: 0 0 .2em;
+    }
+    p {
+      font-size: emize(15);
+      line-height: emize(21, 15);
+      margin: 0;
+    }
+  }
+
+  section.secondary-news {
+    img {
+      float: right;
+      width: 30%;
+      margin-left: 1em;
+    }
+  }
+
+  section.link-list {
+    ul {
+      margin: 1em 0 0 1.2em;
+      padding: 0;
+      list-style: inherit;
+    }
+    li {
+      font-size: emize(17);
+      line-height: emize(23, 17);
+      margin: 0 0 .5em;
+      padding: 0;
+    }
+    .more {
+      margin-top: 1em;
+    }
+  }
+
+  section.movies {
+    margin-bottom: 0;
+    h1 {
+      margin-top: 0;
+    }
+  }
+
+  div.banner img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.overview-title {
+  @include clearfix();
+  @include columns(12);
+  margin-top: 1.5em;
+}
+
+nav.overview {
+  @include clearfix();
+  @include columns(12);
+  margin: 0 0 .5em;
+}
+
+nav.content.show-overview {
+  margin-top: -1em;
+  li a {
+    border-top: $border;
+  }
+}
+
+ul.footer-meta {
+  @include clearfix();
+  @include columns(12);
+  border-top: $border;
+  padding-top: .5em;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  font-family: $sans-serif;
+  li {
+    font-size: emize(14);
+  }
+}
