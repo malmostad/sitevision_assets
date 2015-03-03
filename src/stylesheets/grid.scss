@@ -18,6 +18,15 @@ nav.basic {
   @include columns(4, true, 4%);
 }
 
+div.navigation{
+  @include columns(4, true, 4%);
+  nav.content,
+  nav.basic {
+    width:100%;
+    float:none;
+  }  
+}
+
 @media (max-width: 48em) {
   .wrapper {
     max-width: 34em;
@@ -26,6 +35,7 @@ nav.basic {
   article.body-copy,
   nav.content,
   nav.basic,
+  div.navigation,
   main.news-archive {
     @include columns(12);
   }
