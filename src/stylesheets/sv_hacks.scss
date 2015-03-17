@@ -3,12 +3,26 @@
 body a,.normal a{
     color: $link-color;
 }
-.sv-editing-mode #malmo-masthead {
-    top: 30px;
-    z-index:999999;
-}
-.sv-editing-mode{
+.sv-editing-mode {
     margin-top:84px !important;
+    
+    #malmo-masthead {
+      top: 30px;
+      z-index:999999;
+    }
+    section.start-page-main {
+      div.banner img {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+    .sv-format-menu .sv-format-item {
+      font-size: 13px;
+      font-weight: normal;
+      font-style: normal;
+      font-family: arial;
+      line-height: normal;
+    }
 }
 a.body, body a, .body a, a.portlet-font, a.portlet-font-label, a.portlet-font-dim, a.portlet-msg-status, a.portlet-msg-info, a.portlet-msg-error, a.portlet-msg-alert, a.portlet-section-selected, a.portlet-section-footer, a.portlet-form-label, a.portlet-form-input-field, a.portlet-form-button, a.portlet-icon-label, a.portlet-dlg-icon-label, a.portlet-form-field-label, a.portlet-form-field, a.portlet-menu, a.portlet-menu-item, a.portlet-menu-item-selected, a.portlet-menu-item-hover, a.portlet-menu-item-hover-selected, a.portlet-menu-cascade-item, a.portlet-menu-cascade-item-selected, a.portlet-menu-description, a.portlet-menu-caption, a.sv-portlet-link-description, a.sv-portlet-primary-paragraph, a.normal, .portlet-font a, .portlet-font-label a, .portlet-font-dim a, .portlet-msg-status a, .portlet-msg-info a, .portlet-msg-error a, .portlet-msg-alert a, .portlet-section-selected a, .portlet-section-footer a, .portlet-form-label a, .portlet-form-input-field a, .portlet-form-button a, .portlet-icon-label a, .portlet-dlg-icon-label a, .portlet-form-field-label a, .portlet-form-field a, .portlet-menu a, .portlet-menu-item a, .portlet-menu-item-selected a, .portlet-menu-item-hover a, .portlet-menu-item-hover-selected a, .portlet-menu-cascade-item a, .portlet-menu-cascade-item-selected a, .portlet-menu-description a, .portlet-menu-caption a, .sv-portlet-link-description a, .sv-portlet-primary-paragraph a, .normal a{
     font-family:inherit;
@@ -70,14 +84,6 @@ nav.nav-page-with-direct-links {
     font-size: emize(12);
     letter-spacing: .2em;
   }
-}
-
-.sv-editing-mode .sv-format-menu .sv-format-item {
-  font-size: 13px;
-  font-weight: normal;
-  font-style: normal;
-  font-family: arial;
-  line-height: normal;
 }
 
 .sv-file-portlet td img {
@@ -167,12 +173,5 @@ nav.basic .current a{
     font-size: inherit;
     padding: 0;
     margin: 0;
-  }
-}
-
-section.start-page-main {
-  div.banner img {
-    width: 100% !important;
-    height: auto !important;
   }
 }
