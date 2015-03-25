@@ -175,3 +175,13 @@ nav.basic .current a{
     margin: 0;
   }
 }
+.start-page-main{
+  .primary-news,
+  .secondary-news,
+  .employee-news,
+  .link-list{
+    .sv-spacer{
+      padding: 0 !important;
+    }
+  }
+}
