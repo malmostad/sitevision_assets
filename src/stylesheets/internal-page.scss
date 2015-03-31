@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.pagecontent > .sv-text-portlet > .sv-text-portlet-content > h1 {
+  @extend %h1.body-copy
+}
+
 .box.featured {
   .sv-text-portlet:first-child ~ .sv-text-portlet {
     margin: .6em;
