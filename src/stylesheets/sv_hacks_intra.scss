@@ -1,0 +1,29 @@
+.sv-form-portlet,
+.sv-survey-portlet,
+.sv-signup-portlet{
+    margin-bottom:2em;
+}
+.sv-survey-portlet,
+.sv-form-portlet,
+.sv-signup-portlet{
+ 	div{
+	    background: none !important;
+	    border: none !important;
+	    padding: 0 !important;
+	}
+}
+
+.sv-signup-portlet table,
+.sv-signup-portlet table * {
+    background-color: transparent !important;
+}
+
+
+.table-head,.table-text{
+    font-family: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit
+}
