@@ -96,6 +96,11 @@
   column-width: $value;
 }
 
+@mixin column-fill($value) {
+  -moz-column-fill: $value;
+  column-fill: $value;
+}
+
 @mixin column-gap($value) {
   -webkit-column-gap: $value;
   -moz-column-gap: $value;
