@@ -157,6 +157,49 @@ section.start-page-main {
     width: 100%;
     height: auto;
   }
+
+  section.quick-links {
+    .sv-layout {
+      min-height: 0 !important;
+    }
+    > div > .sv-text-portlet + div:not(.sv-text-portlet){
+      margin-bottom: -1em;
+      @include column-width(11em);
+      @include column-gap(1.4em);
+      @include column-fill(balance);
+      .sv-text-portlet-content {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+    }
+
+    h2 {
+      font-family: $sans-serif;
+      font-size: emize(14);
+      font-weight: bold;
+      margin: 0 0 .3em;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 .7em;
+    }
+
+    li {
+      padding-bottom: .3em;
+    }
+
+    a {
+      font-family: $sans-serif;
+      line-height: 1.2;
+    }
+  }
+
 }
 
 .overview-title {
