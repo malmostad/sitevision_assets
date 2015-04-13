@@ -99,19 +99,19 @@ section.start-page-main {
     }
   }
 
-  section.secondary-news,
-  section.employee-news,
-  section.social-news {
-    img {
-      @include forceColumns(1.5, false, 2%);
-      @media (max-width: 32em) {
-        @include forceColumns(2.5, false, 3%);
-      }
-      border: 0;
-      margin-top: .2em;
-      background: $background-light;
-    }    
-  }
+  // section.secondary-news,
+  // section.employee-news,
+  // section.social-news {
+  //   img {
+  //     @include forceColumns(1.5, false, 2%);
+  //     @media (max-width: 32em) {
+  //       @include forceColumns(2.5, false, 3%);
+  //     }
+  //     border: 0;
+  //     margin-top: .2em;
+  //     background: $background-light;
+  //   }    
+  // }
 
 
   // section.primary-news {
@@ -127,7 +127,7 @@ section.start-page-main {
   //     @include columns(9.5, true, 3%);
   //   }
   // }
-  
+
   section.secondary-news {
     img {
       width: 30% !important;
