@@ -56,9 +56,9 @@ section.start-page-main {
       margin-top: .3em;
       background: $background-light;
     }
-    .text {
-      @include columns(9.5, true, 3%);
-    }
+    // .text {
+    //   @include columns(9.5, true, 3%);
+    // }
 
     h2 {
       font-weight: normal;
@@ -125,6 +125,7 @@ section.start-page-main {
     img {
       float: right;
       width: 30%;
+      height: auto;
       margin-left: 1em;
     }
   }
@@ -159,9 +160,6 @@ section.start-page-main {
   }
 
   section.quick-links {
-    .sv-layout {
-      min-height: 0 !important;
-    }
     > div > .sv-text-portlet + div:not(.sv-text-portlet){
       margin-bottom: -1em;
       @include column-width(11em);

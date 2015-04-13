@@ -1,29 +1,134 @@
-.sv-form-portlet,
-.sv-survey-portlet,
-.sv-signup-portlet{
-    margin-bottom:2em;
+
+
+@mixin forceColumns($span, $last: false, $gutter: 2%, $total-columns: 12) {
+  // (column width in percentage) minus its (own portion of all the gutters)
+
+  width: percentage($span / $total-columns) - (($total-columns / $span - 1) * $gutter / ($total-columns / $span)) !important;
+  
+  // No gutter to the right if the column is last in a row
+  @if not $last {
+    margin-right: $gutter;
+  } @else {
+    margin-right: 0;
+  }
+  @if $span == $total-columns {
+    margin-right: 0;
+    float: none;
+  }
+
+  float: left;
+  @include box-sizing(border-box);
 }
+
+
+
+
+.sv-form-portlet,
+.sv-survey-portlet,
+.sv-signup-portlet {
+  margin-bottom: 2em;
+}
+
 .sv-survey-portlet,
 .sv-form-portlet,
-.sv-signup-portlet{
- 	div{
-	    background: none !important;
-	    border: none !important;
-	    padding: 0 !important;
-	}
+.sv-signup-portlet {
+  div {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
 }
 
 .sv-signup-portlet table,
 .sv-signup-portlet table * {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
+.table-head, .table-text {
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+}
 
-.table-head,.table-text{
-    font-family: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-    font-size: inherit;
-    color: inherit;
-    line-height: inherit
+section.start-page-main {
+
+
+
+  section.quick-links {
+    > div > .sv-text-portlet{
+      + .sv-layout {
+        min-height: 0 !important;
+      }
+    }
+  }
+
+  section.link-list {
+    ul {   
+      list-style: disc;
+    }
+    ul.normal {
+      font-size: 1em;
+      li {
+        font-size: 17px;
+        line-height: 23px;
+      }
+      a {
+        font-size: inherit;
+      }
+    }
+  }
+
+  section.primary-news,  
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    img {
+      height: auto !important;
+    }
+  }
+
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    img {
+      @include forceColumns(1.5, false, 2%);
+      @media (max-width: 32em) {
+        @include forceColumns(2.5, false, 3%);
+      }
+      border: 0;
+      margin-top: .2em;
+      background: $background-light;
+    }    
+  }
+
+
+  section.primary-news {
+    .text {
+      @include columns(12, true, 3%);
+    }
+    img {
+      @include forceColumns(2.5, false, 3%);
+      margin-top: .3em;
+      background: $background-light;
+    }
+    img + .text {      
+      @include columns(9.5, true, 3%);
+    }
+  }
+  section.secondary-news {
+    img {
+      width: 30% !important;
+    }
+  }
+  section.primary-news,
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    .more a{            
+      font-size: 14px !important;      
+    }
+  }
 }
