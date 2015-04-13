@@ -89,6 +89,15 @@ section.start-page-main {
       height: auto !important;
     }
   }
+  
+  section.primary-news,  
+  section.employee-news,
+  section.social-news {
+    img {
+      width: 100% !important; 
+      height: auto !important;
+    }
+  }
 
   section.secondary-news,
   section.employee-news,
@@ -105,19 +114,20 @@ section.start-page-main {
   }
 
 
-  section.primary-news {
-    .text {
-      @include columns(12, true, 3%);
-    }
-    img {
-      @include forceColumns(2.5, false, 3%);
-      margin-top: .3em;
-      background: $background-light;
-    }
-    img + .text {      
-      @include columns(9.5, true, 3%);
-    }
-  }
+  // section.primary-news {
+  //   .text {
+  //     @include columns(12, true, 3%);
+  //   }
+  //   img {
+  //     @include forceColumns(2.5, false, 3%);
+  //     margin-top: .3em;
+  //     background: $background-light;
+  //   }
+  //   img + .text {      
+  //     @include columns(9.5, true, 3%);
+  //   }
+  // }
+  
   section.secondary-news {
     img {
       width: 30% !important;

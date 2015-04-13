@@ -56,9 +56,9 @@ section.start-page-main {
       margin-top: .3em;
       background: $background-light;
     }
-    // .text {
-    //   @include columns(9.5, true, 3%);
-    // }
+    .text {
+      @include columns(9.5, true, 3%);
+    }
 
     h2 {
       font-weight: normal;
