@@ -24,8 +24,8 @@ jQuery ($) ->
         # Set selected district in cookie
         $.cookie('city-district', district, { expires: 365, path: '/' } )
   
-  $(document.body).on "change", $chooseDistrict.find("select"), ->
-    showDistrictContact $chooseDistrict.find("select").val()
+  $(document).on "change", ".multi-district select", (e) ->    
+    showDistrictContact $(e.currentTarget).val()
 
   $("aside.contact-us .write-to-us").click (event) -> 
     event.preventDefault()
