@@ -9,46 +9,6 @@ section.movies {
     padding: 0;
   }
 
-  ul li {
-    margin-bottom: 1.2em;
-    @include columns(2, false);
-    &:last-child {
-      @include columns(2, true);
-      margin-bottom: 2em;
-    }
-    @media (min-width: 38em) and (max-width: 51.99em) {
-      &:nth-child(3n+1) {
-        @include columns(4, false, 3%);
-      }
-      &:nth-child(3n+2), &:nth-child(3n+2) {
-        @include columns(4, false, 3%);
-      }
-      &:nth-child(3n) {
-        @include columns(4, true, 3%);
-      }
-      &:nth-child(3n+4) {
-        clear: left;
-      }
-    }
-    @media (min-width: 26em) and (max-width: 37.99em) {
-      &:nth-child(2n+1) {
-        @include columns(6, false, 4%);
-      }
-      &:nth-child(2n) {
-        @include columns(6, true, 4%);
-      }
-      &:nth-child(2n+3) {
-        clear: left;
-      }
-    }
-    @media (max-width: 25.99em) {
-      &:nth-child(n+0) {
-        @include columns(12, true);
-        clear: left;
-      }
-    }
-  }
-
   ul.n4 li {
     margin-bottom: 1.2em;
     margin-left: 0;
@@ -72,18 +32,6 @@ section.movies {
       &, &:last-child {
         @include columns(12, true);
         clear: left;
-      }
-    }
-    // BACKWARD COMPATIBILITY FIX, REMOVE LATER
-    @media (max-width: 51.99em) and (min-width: 38em) {
-      &:nth-child(3n+4) {
-        clear: none;
-      }
-    }
-    // BACKWARD COMPATIBILITY FIX, REMOVE LATER
-    @media (max-width: 37.99em) and (min-width: 26em) {
-      &:nth-child(2n+3) {
-        clear: none;
       }
     }
   }
