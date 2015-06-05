@@ -43,6 +43,7 @@ module.exports = (grunt) ->
             # Files to compile and concatenate in given order
             'src/javascripts/contact_us.coffee'
             'src/javascripts/feedback.coffee'
+            'src/javascripts/video.coffee'
           ]
 
     uglify:
