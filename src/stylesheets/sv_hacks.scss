@@ -3,6 +3,21 @@
 body a,.normal a{
     color: $link-color;
 }
+
+.body-copy,
+.start-page-main {
+  h1, h2, h4, p.normal {
+    strong, strong * {
+      font-weight: normal !important;
+    }
+  }
+  h1, h2, h3, p.preamble {
+    em, em * {
+      font-style: normal !important; 
+    }
+  }
+}
+
 .sv-editing-mode {
     margin-top:84px !important;
     

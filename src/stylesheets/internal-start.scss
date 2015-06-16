@@ -7,6 +7,22 @@ section.start-page-main {
     margin-bottom: 2em;
   }
 
+  h1 {
+    @extend %h1.body-copy;
+  }
+  h2 {
+    @extend %h2.body-copy;
+  }
+  h3 {
+    @extend %h3.body-copy;
+  }
+  p.preamble {
+    @extend %p.preamble-body-copy;
+  }
+  p.normal {
+    @extend %p.body-copy;
+  }
+
   section {
     margin-bottom: 2em;
     h1 {
