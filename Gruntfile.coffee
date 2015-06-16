@@ -4,6 +4,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-war'
 
   grunt.initConfig
@@ -45,6 +46,16 @@ module.exports = (grunt) ->
             'src/javascripts/feedback.coffee'
             'src/javascripts/video.coffee'
           ]
+    
+    # $ grunt copy
+    copy: 
+      images: 
+        files: [
+          expand: true
+          cwd: 'src/images/'
+          src: ['**/*.{png,jpg,svg}']
+          dest: '<%= forDist ? "dist" : "public" %>/images'
+        ]
 
     uglify:
       options:
@@ -85,12 +96,12 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: 'dist'
-          src: ['*.js', '*.css', '*.map']
+          src: ['*.js', '*.css', 'images/*', '*.map']
           dest: ''
         ]
 
   # $ grunt build
-  grunt.registerTask 'build', ["clean:build", "sass", "coffee"]
+  grunt.registerTask 'build', ["clean:build", "sass", "coffee", "copy"]
   
   # $ grunt build-intra
   grunt.registerTask 'build-intra', ->          
@@ -98,7 +109,8 @@ module.exports = (grunt) ->
     grunt.task.run [
       "clean:build"
       "sass"
-      "coffee"      
+      "coffee"
+      "copy"
     ]
 
   # $ grunt dist
@@ -112,6 +124,7 @@ module.exports = (grunt) ->
       "sass"
       "coffee"
       "uglify"
+      "copy"
     ]
     grunt.task.run "war" if grunt.option('war')
 
@@ -128,5 +141,6 @@ module.exports = (grunt) ->
       "sass"
       "coffee"
       "uglify"
+      "copy"
     ]
     grunt.task.run "war" if grunt.option('war')
