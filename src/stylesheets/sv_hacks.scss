@@ -11,6 +11,11 @@ body a,.normal a{
       font-weight: normal !important;
     }
   }
+  p.normal {
+    strong, strong * {
+      font-style: italic !important; 
+    }
+  }
   h1, h2, h3, p.preamble {
     em, em * {
       font-style: normal !important; 
