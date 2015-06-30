@@ -44,12 +44,12 @@ The contents of `public` and `dist` are excluded from the Git repository by the 
 ## Development Setup
 Checkout the source code to your workspace:
 
-    $ git clone git@github.com:malmostad/sitevision_assets.git
-    $ cd sitevision_assets
+$ git clone git@github.com:malmostad/sitevision_assets.git
+$ cd sitevision_assets
 
 After cloning the repository, install the dependencies for the project. Be sure to have [Node.js](http://nodejs.org) installed on your machine. Run:
 
-    $ npm install
+$ npm install
 
 The dependencies defined in `package.json` will be installed in `node_modules`i the projects root. That directory is excluded in the `.gitignore` file from being committed with Git so you need to run the `npm install` command again if you switch to another local machine. To update the dependencies later, run `npm update`.
 
@@ -57,24 +57,24 @@ The dependencies defined in `package.json` will be installed in `node_modules`i 
 ## Development
 During development, it is in the `src` directory you are working. You want the asset files to be re-compiled automatically whenever you make changes to the source code. Use the Grunt `watch` task available in the project:
 
-    $ grunt watch
+$ grunt watch
 
 The Sass and CoffeeScript files in the `src` directory will be compiled to the `public` directory as soon as they are changed as well as at the startup of the `watch` task. The `public` directory is automatically cleaned when you run the task.
 
 If you want to have source maps generated for debugging of stylesheets and JavaScripts, add the ` --sourcemaps` argument:
 
-    $ grunt watch --sourcemaps
+$ grunt watch --sourcemaps
 
 If you for some reason want to generate the files in `public` once without having the watcher running, run one of the following:
 
 ```bash
-    # External website
-    $ grunt build
-    $ grunt build --sourcemaps
+# External website
+$ grunt build
+$ grunt build --sourcemaps
 
-    # Intranet
-    $ grunt build-intra
-    $ grunt build-intra --sourcemaps
+# Intranet
+$ grunt build-intra
+$ grunt build-intra --sourcemaps
 ```
 
 Files generated to `public` directory must not be used for deployment to production, `dist` is used for that (see *Build for Deployment* below).
@@ -95,7 +95,7 @@ Sass utilities from our [shared_assets](https://github.com/malmostad/shared_asse
 
 To update the Sass utilities for this project, if you e.g. need a fresh version of the `variables.scss` file, run:
 
-    $ bower update
+$ bower update
 
 The updated files must be committed (to this repository) to ensure that all developers—working with this system—have the very same versions.
 
@@ -109,7 +109,7 @@ Pro tip: If you don't want to run a development version of Sitevision on your ow
 ### Using Express
 You have already [Express](http://expressjs.com/) installed if you ran `npm install` in the setup step above. To serve the assets locally on your machine with Express, run:
 
-    $ coffee app.coffee
+$ coffee app.coffee
 
 The assets are now available for your local web browser at e.g. `http://localhost:3000/application.css`. Express is reading static files from the `public` directory. Be sure to have the `watch` task running to have those files compiled whenever a source code file is changed.
 
@@ -117,11 +117,11 @@ The assets are now available for your local web browser at e.g. `http://localhos
 ### Using Sinatra
 The project is also configured to use [Sinatra](http://www.sinatrarb.com/) to serve the assets locally during development, if that is your preference. Be sure to have Ruby installed on your machine and run the following to enable Sinatra:
 
-    $ gem install sinatra
+$ gem install sinatra
 
 Start the local asset server:
 
-    $ rackup
+$ rackup
 
 The assets are now available in your local web browser at e.g. `http://localhost:9292/application.css`. Sinatra is reading static files from the `public` directory. Be sure to have the `watch` task running to have those files compiled whenever a source code file is changed.
 
@@ -130,11 +130,11 @@ The assets are now available in your local web browser at e.g. `http://localhost
 Before deploying, you must generate minified versions of the asset files, run:
 
 ```bash
-    # External website
-    $ grunt dist
+# External website
+$ grunt dist
 
-    # Intranet
-    $ grunt dist-intra
+# Intranet
+$ grunt dist-intra
 ```
 
 A new version will be compiled for deployment in the `dist` directory. The directory will be cleaned before the new files are generated.
@@ -142,11 +142,11 @@ A new version will be compiled for deployment in the `dist` directory. The direc
 To generate a Java servlet for deployment, add the `--war` argument to the command:
 
 ```bash
-    # External website
-    $ grunt dist --war
+# External website
+$ grunt dist --war
 
-    # Intranet
-    $ grunt dist-intra --war
+# Intranet
+$ grunt dist-intra --war
 ```
 
 A Java servlet named `local-assets-v4.war` ready for deployment will be created in the `dist` directory.
