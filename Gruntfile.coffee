@@ -4,12 +4,14 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-war'
 
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
     banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd hh:mm:ss") %> */'
     forDist: false
+    forIntra: false
     generateSourceMaps: true
 
     # $ grunt sass
@@ -24,7 +26,7 @@ module.exports = (grunt) ->
           cwd: 'src/stylesheets'
           src: [
             # Use the Sass declarations `@import` in the main scss file application.scss
-            'application.scss'
+            '<%= forIntra ? "application-intra.scss" : "application.scss" %>'
             # Individual files
             'ie7.scss'
           ]
@@ -42,7 +44,18 @@ module.exports = (grunt) ->
             # Files to compile and concatenate in given order
             'src/javascripts/contact_us.coffee'
             'src/javascripts/feedback.coffee'
+            'src/javascripts/video.coffee'
           ]
+    
+    # $ grunt copy
+    copy: 
+      images: 
+        files: [
+          expand: true
+          cwd: 'src/images/'
+          src: ['**/*.{png,jpg,svg}']
+          dest: '<%= forDist ? "dist" : "public" %>/images'
+        ]
 
     uglify:
       options:
@@ -83,12 +96,22 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: 'dist'
-          src: ['*.js', '*.css', '*.map']
+          src: ['*.js', '*.css', 'images/*', '*.map']
           dest: ''
         ]
 
   # $ grunt build
-  grunt.registerTask 'build', ["clean:build", "sass", "coffee"]
+  grunt.registerTask 'build', ["clean:build", "sass", "coffee", "copy"]
+  
+  # $ grunt build-intra
+  grunt.registerTask 'build-intra', ->          
+    grunt.config "forIntra", true
+    grunt.task.run [
+      "clean:build"
+      "sass"
+      "coffee"
+      "copy"
+    ]
 
   # $ grunt dist
   # $ grunt dist --war
@@ -101,5 +124,23 @@ module.exports = (grunt) ->
       "sass"
       "coffee"
       "uglify"
+      "copy"
+    ]
+    grunt.task.run "war" if grunt.option('war')
+
+
+  # $ grunt dist-intra
+  # $ grunt dist-intra --war
+  grunt.registerTask 'dist-intra', ->
+    grunt.log.writeln("\nYOUR GRUNT ENCODING IS: " + grunt.file.defaultEncoding + " (must be utf8)")
+    grunt.config "forDist", true
+    grunt.config "forIntra", true
+    grunt.config "generateSourceMaps", grunt.option('sourcemaps') or false
+    grunt.task.run [
+      "clean:dist"
+      "sass"
+      "coffee"
+      "uglify"
+      "copy"
     ]
     grunt.task.run "war" if grunt.option('war')

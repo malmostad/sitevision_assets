@@ -1,0 +1,70 @@
+h1.body-copy.overview {
+  margin-bottom: .5em;
+}
+
+h2.overview-title {
+  font-family: $sans-serif;
+  font-size: emize(22);
+  border-bottom: #000 3px solid;
+  margin-bottom: .5em;
+}
+
+nav.overview {
+  @include clearfix();
+  clear: left;
+  margin: 0 0 2.5em;
+  @include column-width(11em);
+  @include column-gap(1.6em);
+  @include column-rule($border);
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 0;
+  }
+
+  > ul > li {
+    padding-bottom: 1.5em;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow: hidden;
+  }
+
+  a {
+    display: block;
+    margin: 0;
+    padding: .2em 0;
+    font-family: $sans-serif;
+    line-height: 1.2;
+    color: #000;
+    // word-wrap: break-word;
+    @include hyphens(auto);
+  }
+
+  > ul > li > a {
+    font-size: emize(16);
+    font-weight: bold;
+    // border-bottom: $border;
+    padding: 0 0 .1em;
+    color: $link-color;
+  }
+
+  li li a {
+    font-size: emize(14);
+  }
+}
+
+.alt nav.overview {
+  @include column-width(14em);
+}
+
+body.touch nav.overview {
+  a {
+    padding: .5em 0;
+  }
+}

@@ -3,13 +3,52 @@ section.movies {
   @include clearfix();
   padding: .5em .8em 0;
   background: $background-darker;
+
+  .bc-video-box {
+    display: none;
+    margin-bottom: .6em;
+  }
+
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    li {
+      color: #fff;
+      cursor: pointer;
+    }
   }
-  ul li {
+
+  ul.n4 li {
     margin-bottom: 1.2em;
+    margin-left: 0;
+    @include columns(3, false);
+    &:last-child {
+      @include columns(3, true);
+      margin-bottom: 2em;
+    }
+    @media (min-width: 26em) and (max-width: 33em) {
+      &:nth-child(2n+1) {
+        @include columns(6, false, 4%);
+      }
+      &:nth-child(2n) {
+        @include columns(6, true, 4%);
+      }
+      &:nth-child(2n+3) {
+        clear: left
+      }
+    }
+    @media (max-width: 25.99em) {
+      &, &:last-child {
+        @include columns(12, true);
+        clear: left;
+      }
+    }
+  }
+
+  ul.n6 li {
+    margin-bottom: 1.2em;
+    margin-left: 0;
     @include columns(2, false);
     &:last-child {
       @include columns(2, true);
@@ -19,7 +58,7 @@ section.movies {
       &:nth-child(3n+1) {
         @include columns(4, false, 3%);
       }
-      &:nth-child(3n+2), &:nth-child(3n+2) {
+      &:nth-child(3n+2) {
         @include columns(4, false, 3%);
       }
       &:nth-child(3n) {
@@ -41,9 +80,8 @@ section.movies {
       }
     }
     @media (max-width: 25.99em) {
-      &:nth-child(n+0) {
-        @include columns(12, true);
-        clear: left;
+      &, &:last-child {
+        @include columns(12, false);
       }
     }
   }
@@ -92,7 +130,6 @@ section.movies {
     }
   }
 
-
   .play {
     position: absolute;
     z-index: 2;
@@ -101,7 +138,7 @@ section.movies {
     right: 0;
     top: 0;
     bottom: 0;
-    background: url(/images/18.760b3241144f4d60d3b9040/play.png) 50% 50% no-repeat;
+    background: url('images/play.png') 50% 50% no-repeat;
     background-size: 100%;
     @media (max-width: 25.99em) {
       background-size: 75%;
@@ -109,7 +146,8 @@ section.movies {
     @include transition(opacity 0.5s);
     opacity: 0;
   }
-  a:hover .play {
+  a:hover .play,
+  li:hover .play {
     opacity: .9;
   }
   img {
@@ -129,7 +167,7 @@ section.movies {
     bottom: .5em;
     right: 1em;
     font-family: $sans-serif;
-    font-size: emize(14);
+    font-size: emize(14) !important;
     color: #fff;
     &:hover {
       text-decoration: underline;

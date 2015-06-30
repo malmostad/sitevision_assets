@@ -1,0 +1,317 @@
+section.start-page-main {
+  @include columns(8, false, 4%);
+  margin-bottom: 1em;
+  overflow: hidden;
+  @media (max-width: 48em) {
+    @include columns(12, true);
+    margin-bottom: 2em;
+  }
+
+  h1 {
+    @extend %h1.body-copy;
+  }
+  h2 {
+    @extend %h2.body-copy;
+  }
+  h3 {
+    @extend %h3.body-copy;
+  }
+  p.preamble {
+    @extend %p.preamble-body-copy;
+  }
+  p.normal {
+    @extend %p.body-copy;
+  }
+
+  section {
+    margin-bottom: 2em;
+    h1 {
+      @extend %h1.aside;
+      margin: 1.5em 0 .5em;
+    }
+
+    .more {
+      margin-top: -.5em;
+      .sv-text-portlet{
+        display: inline-block;        
+      }
+      a {
+        font-family: $sans-serif;
+        font-size: emize(14, 16);
+        display: inline-block;
+        margin-right: 1em;
+      }
+    }
+    .date {
+      display: inline-block;
+      font-family: $sans-serif;
+      font-size: emize(14, 17);
+      white-space: nowrap;
+    }
+  }
+
+  div.full {
+    >img,
+    > a > img {
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 0 1em;
+    }
+    p.sv-portlet-image-caption {
+      font-family: $sans-serif;
+      font-size: .875em;
+      line-height: 1.2;
+      margin: 0 0 1.5em;
+      font-style: normal;
+    }
+    img+p.sv-portlet-image-caption {
+      margin-top: -.7em;
+    }
+  }
+
+  .img-secondary {
+    @extend .no-content;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: .3em;
+    &:before {
+      line-height: normal;
+    }
+  }
+
+  section.primary-news,
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      @include clearfix();
+      margin: 0 0 1em;
+      padding: 0;
+    }
+  }
+
+  section.primary-news {
+    .img {
+      @include columns(2.5, false, 3%);
+      margin-top: .3em;
+      img[src$='placeholder.png'] {
+        background: $background-light;
+      }
+    }
+    .text {
+      @include columns(9.5, true, 3%);
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: emize(24);
+      @media (max-width: 32em) {
+        font-size: emize(20);
+      }
+      margin: 0 0 .2em;
+    }
+    p {
+      font-size: emize(17);
+      line-height: emize(23, 17);
+      margin: 0;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border: 0;
+    }
+  }
+
+  section.secondary-news,
+  section.employee-news,
+  section.social-news {
+    .text {
+      @include columns(10.5, true, 2%);
+      @media (max-width: 32em) {
+        @include columns(9.5, true, 3%);
+      }
+    }
+    .img {
+      @include columns(1.5, false, 2%);
+      @media (max-width: 32em) {
+        @include columns(2.5, false, 3%);
+      }
+      margin-top: .2em;
+      img {
+        width: 100%;
+        height: auto;
+        border: 0;
+        &[src$='placeholder.png']{
+          background: $background-light;
+        }
+      }
+    }
+
+    li {
+      @include clearfix();
+      margin: 0 0 1em;
+      padding: 0;
+    }
+
+    h2 {
+      font-weight: normal;
+      font-size: emize(17);
+      margin: 0 0 .2em;
+    }
+    p {
+      font-size: emize(15);
+      line-height: emize(21, 15);
+      margin: 0;
+    }
+  }
+
+  section.secondary-news {
+    img {
+      float: right;
+      width: 30%;
+      height: auto;
+      margin-left: 1em;
+    }
+  }
+
+  section.link-list {
+    ul {
+      margin: 1em 0 0 1.2em;
+      padding: 0;
+      list-style: inherit;
+    }
+    li {
+      font-size: emize(17);
+      line-height: emize(23, 17);
+      margin: 0 0 .5em;
+      padding: 0;
+    }
+    .more {
+      margin-top: 1em;
+    }
+  }
+
+  .primary-news,
+  .secondary-news,
+  .employee-news,
+  .link-list{
+    .sv-spacer{
+      padding: 0 !important;
+    }
+  }
+
+  section.movies {
+    margin-bottom: 0;
+    h1 {
+      margin-top: 0;
+    }
+  }
+
+  div.banner img {
+    width: 100%;
+    height: auto;
+  }
+
+  section.quick-links {
+    > div > .sv-text-portlet + div:not(.sv-text-portlet){
+      margin-bottom: -1em;
+      @include column-width(11em);
+      @include column-gap(1.4em);
+      @include column-fill(balance);
+      .sv-text-portlet-content {
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+    }
+
+    h2 {
+      font-family: $sans-serif;
+      font-size: emize(14);
+      font-weight: bold;
+      margin: 0 0 .3em;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 .7em;
+    }
+
+    li {
+      padding-bottom: .3em;
+    }
+
+    a {
+      font-family: $sans-serif;
+      line-height: 1.2;
+    }
+  }
+
+}
+
+.overview-title {
+  @include clearfix();
+  @include columns(12);
+  margin-top: 1.5em;
+}
+
+nav.overview {
+  @include clearfix();
+  @include columns(12);
+  margin: 0 0 .5em;
+}
+
+nav.content.show-overview {
+  margin-top: -1em;
+  li a {
+    border-top: $border;
+  }
+}
+
+ul.footer-meta {
+  @include clearfix();
+  @include columns(12);
+  border-top: $border;
+  padding-top: .5em;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  font-family: $sans-serif;
+  li {
+    font-size: emize(14);
+  }
+}
+
+.sv-signup-portlet form > div > div:first-child{
+  float:none !important;
+  margin:0;
+  +div{
+    background-color: #fff !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+}
+
+.body-copy .meta {
+  font-family: $sans-serif;
+  font-size: emize(14);
+}
+
+.box-title{
+  h1,h2,h3 {
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+  }
+}
