@@ -1,6 +1,6 @@
 # Sitevision Assets
 
-This repository contains the source for asset files used in the CMS Sitevision at www.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
+This repository contains the source for asset files used in the CMS Sitevision at www.malmo.se and the intranet at komin.malmo.se. Utilities for development and build are also included in this repo. The asset files, specific for this service, are used in addition to the [Global Assets](https://github.com/malmostad/global_assets) used on all our external web services.
 
 ## tl;dr
 If you’re impatient and familiar with management of asset files using Grunt or other commonly used tools such as Rake or Sprockets, this is the short story:
@@ -16,9 +16,16 @@ $ grunt watch          # watch `src` and generate to `public`
 $ coffee app.coffee    # serve files from `public` on port 3000
 
 # Build for deployment
+
+# External website
 $ grunt dist                        # generate files to `dist` for deployment
 $ grunt dist --war                  # generate a servlet to `dist` for deployment
 $ grunt dist --sourcemaps --war     # generate a servlet to `dist` for deployment in test with sourcemaps
+
+# Intranet 
+$ grunt dist-intra 
+$ grunt dist-intra --war 
+$ grunt dist-intra --sourcemaps --war 
 ```
 
 If you’re not, read the rest of the instructions.
@@ -60,8 +67,15 @@ If you want to have source maps generated for debugging of stylesheets and JavaS
 
 If you for some reason want to generate the files in `public` once without having the watcher running, run one of the following:
 
+```bash
+    # External website
     $ grunt build
     $ grunt build --sourcemaps
+
+    # Intranet
+    $ grunt build-intra
+    $ grunt build-intra --sourcemaps
+```
 
 Files generated to `public` directory must not be used for deployment to production, `dist` is used for that (see *Build for Deployment* below).
 
@@ -115,13 +129,25 @@ The assets are now available in your local web browser at e.g. `http://localhost
 ## Build for Deployment
 Before deploying, you must generate minified versions of the asset files, run:
 
+```bash
+    # External website
     $ grunt dist
+
+    # Intranet
+    $ grunt dist-intra
+```
 
 A new version will be compiled for deployment in the `dist` directory. The directory will be cleaned before the new files are generated.
 
 To generate a Java servlet for deployment, add the `--war` argument to the command:
 
+```bash
+    # External website
     $ grunt dist --war
+
+    # Intranet
+    $ grunt dist-intra --war
+```
 
 A Java servlet named `local-assets-v4.war` ready for deployment will be created in the `dist` directory.
 
