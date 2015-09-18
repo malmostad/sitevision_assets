@@ -3,39 +3,3 @@
 .pagecontent > .sv-text-portlet > .sv-text-portlet-content > h1 {
   @extend %h1.body-copy
 }
-
-.box.featured {
-  .sv-text-portlet:first-child ~ .sv-text-portlet {
-    margin: .6em;
-    padding: 0;   
-  }
-  .sv-text-portlet:first-child h2 {
-    -moz-border-radius: 2px 2px 0 0;
-    -webkit-border-radius: 2px 2px 0 0;
-    border-radius: 2px 2px 0 0;
-    font-size: 0.875em;
-    line-height: 1.28571429em;
-    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", sans-serif;
-    font-weight: normal;
-    margin: 0 0 .6em;
-    padding: .4em .6em .5em;
-    background: #757575;
-    color: #fff;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    ~ * {
-      border:2px solid red;
-      &:before,
-      &:after{
-        color:#777;
-      }
-      &:before{
-        content:"Endast en rubrik tillåtet [";
-      }
-      &:after{
-        content:"]";
-      }
-    }
-  }
-}
