@@ -108,6 +108,13 @@ section.start-page-main {
   }
 }
 
+.contact-us {
+  .vcard {
+    display: block; 
+    overflow: hidden; 
+  }
+}
+
 @media (max-width: 24em) {
   .contact-us .vcard img {
     float: none;
