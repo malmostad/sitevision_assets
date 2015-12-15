@@ -10,6 +10,7 @@ If you’re impatient and familiar with management of asset files using Grunt or
 $ git clone git@github.com:malmostad/sitevision_assets.git
 $ cd sitevision_assets
 $ npm install
+$ gem install sass
 
 # During development
 $ grunt watch          # watch `src` and generate to `public`
