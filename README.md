@@ -53,6 +53,10 @@ $ npm install
 
 The dependencies defined in `package.json` will be installed in `node_modules`i the projects root. That directory is excluded in the `.gitignore` file from being committed with Git so you need to run the `npm install` command again if you switch to another local machine. To update the dependencies later, run `npm update`.
 
+Install ruby and run the following command to install sass: 
+
+$ gem install sass
+
 
 ## Development
 During development, it is in the `src` directory you are working. You want the asset files to be re-compiled automatically whenever you make changes to the source code. Use the Grunt `watch` task available in the project:
