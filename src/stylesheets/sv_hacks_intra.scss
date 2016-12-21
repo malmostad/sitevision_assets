@@ -115,6 +115,11 @@ section.start-page-main {
   }
 }
 
+.contact-us .vcard h2 a {
+	font-weight: bold;
+	line-height: 1.2;
+}
+
 @media (max-width: 24em) {
   .contact-us .vcard img {
     float: none;
