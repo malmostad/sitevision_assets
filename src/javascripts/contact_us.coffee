@@ -16,7 +16,7 @@ jQuery ($) ->
         if($chosen.length)
           $chosen.show()
         else
-          $chooseDistrict.after('<div class="no-district-available">Kontaktinformation för valt stadsområde saknas.</div>')
+          $chooseDistrict.after('<div class="no-district-available">Kontaktinformation för valt område saknas.</div>')
 
         # Set district in select menu
         $selectDistrict.val district
