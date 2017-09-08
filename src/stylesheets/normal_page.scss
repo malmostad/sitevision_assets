@@ -95,3 +95,33 @@
     }
   }
 }
+
+.body-copy{
+
+  .in-focus-red {
+    position: relative;
+    margin: 1em 0;
+    padding: 1em 1.5em;
+    border: #b5b5b5 1px solid;
+    -moz-border-radius: 3px;
+    /* -webkit-border-radius: 3px; */
+    border-radius: 3px;
+    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", sans-serif;
+    font-size: 1em;
+
+    &:before{
+      position: absolute;
+      display: block;
+      background: $danger-color;
+      -moz-border-radius: 3px 0 0 3px;
+      -webkit-border-radius: 3px 0 0 3px;
+      border-radius: 3px 0 0 3px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 0.5em;
+      content: '';
+
+    }
+  }
+}
